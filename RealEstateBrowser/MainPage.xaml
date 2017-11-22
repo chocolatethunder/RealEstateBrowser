@@ -7,7 +7,56 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                    <SlideNavigationTransitionInfo/>
+                </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
 
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <RelativePanel>
+                <TextBox 
+                    x:Name="location" 
+                    Width="400" 
+                    Height="50"
+                    FontSize="28"
+                />
+                    <Button 
+                    x:Name="searchLocation" 
+                    Click="searchLocation_Click"
+                    Width="140" Height="50" 
+                    RelativePanel.RightOf="location" 
+                    RelativePanel.AlignTopWith="location"
+                    Background="#11BFDB"
+                >
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <TextBlock Foreground="White" FontFamily="Segoe MDL2 Assets" Text="&#xE721;" FontSize="28" Margin="0,4,0,0"/>
+                            <TextBlock Foreground="White" Text="Search" FontSize="26" Margin="10,0,5,5"/>
+                        </StackPanel>
+                    </Button>
+                    <Button
+                    x:Name="autoLocate"
+                    Width="50"
+                    Height="50"
+                    RelativePanel.RightOf="searchLocation"
+                    RelativePanel.AlignTopWith="searchLocation"
+                    Content="&#xE81D;"
+                    FontFamily="Segoe MDL2 Assets"
+                    FontSize="28"
+                />
+            </RelativePanel>
+
+        </StackPanel>
+        
     </Grid>
 </Page>
