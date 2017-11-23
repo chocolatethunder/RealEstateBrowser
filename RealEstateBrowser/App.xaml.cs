@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace RealEstateBrowser
 {
+
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>

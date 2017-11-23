@@ -1,0 +1,138 @@
+﻿<Page
+    x:Class="RealEstateBrowser.intro"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RealEstateBrowser"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                    <EntranceNavigationTransitionInfo/>
+                </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border 
+            BorderBrush="#CCCCCC"
+            BorderThickness="1"
+            Grid.Row="1" Grid.Column="1">
+
+            <StackPanel Orientation="Vertical" Padding="20">
+                <Grid x:Name="inner" Width="800" Height="480">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
+
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock 
+                            Text="Welcome!"
+                            FontFamily="Roboto"
+                            FontSize="48" 
+                            HorizontalAlignment="Center"/>
+                        <TextBlock 
+                            Text="Let's get started!" 
+                            FontFamily="Roboto"
+                            FontSize="20" 
+                            HorizontalAlignment="Center"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Frame x:Name="questions">
+
+                        </Frame>
+                    </StackPanel>
+
+                    <RelativePanel Grid.Row="2" VerticalAlignment="Bottom">
+                        <Button 
+                            x:Name="previousStep" 
+                            Click="previousStep_Click" 
+                            RelativePanel.AlignLeftWithPanel="True" 
+                            Width="125" 
+                            Height="50"
+                        >
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <TextBlock 
+                                    Foreground="White" 
+                                    VerticalAlignment="Center" 
+                                    FontFamily="Segoe MDL2 Assets" 
+                                    Text="&#xE76B;" 
+                                    FontSize="20"
+                                    Margin="0,0,5,0"
+                                />
+                                <TextBlock 
+                                    Foreground="White" 
+                                    VerticalAlignment="Center" 
+                                    FontFamily="Roboto"
+                                    Text="BACK" 
+                                    FontSize="28" 
+                                    Margin="0,0,0,2"
+                                />
+                            </StackPanel>
+                        </Button>
+
+                        <TextBlock 
+                            x:Name="progressBar"
+                            RelativePanel.AlignVerticalCenterWithPanel="True" 
+                            RelativePanel.AlignHorizontalCenterWithPanel="True" 
+                            Foreground="#11BFDB" 
+                            FontFamily="Segoe MDL2 Assets" 
+                            Text="&#xECCB; &#xECCA; &#xECCA;" 
+                            FontSize="32"
+                        />
+                        <Button 
+                            x:Name="nextStep" 
+                            RelativePanel.AlignRightWithPanel="True" 
+                            Width="125" 
+                            Height="50" 
+                            Background="#11BFDB"
+                            Click="nextStep_Click"
+                        >
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <TextBlock 
+                                    Foreground="White" 
+                                    VerticalAlignment="Center" 
+                                    Text="NEXT" FontSize="28" 
+                                    FontFamily="Roboto" 
+                                    Margin="0,0,0,2"
+                                />
+                                <TextBlock 
+                                    Foreground="White" 
+                                    VerticalAlignment="Center" 
+                                    FontFamily="Segoe MDL2 Assets" 
+                                    Text="&#xE76C;" 
+                                    FontSize="20" 
+                                    Margin="5,0,0,0"
+                                />
+                            </StackPanel>
+                        </Button>
+
+                    </RelativePanel>
+
+                </Grid>
+
+            </StackPanel>
+
+        </Border>
+
+    </Grid>
+</Page>
