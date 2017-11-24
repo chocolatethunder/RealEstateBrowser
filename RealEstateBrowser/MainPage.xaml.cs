@@ -72,7 +72,7 @@ namespace RealEstateBrowser
             location.IsEnabled = true;
             searchLocation.IsEnabled = true;
             searchingWait.IsActive = false;
-            autoLocate.Background = new SolidColorBrush(Color.FromArgb(20, 0, 0, 0));
+            autoLocate.Background = new SolidColorBrush(Color.FromArgb(51, 0, 0, 0));
         }
 
         private async void autoLocate_Click(object sender, RoutedEventArgs e)
