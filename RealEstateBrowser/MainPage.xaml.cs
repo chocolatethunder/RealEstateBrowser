@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Devices.Geolocation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -13,6 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
+
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -63,5 +66,51 @@ namespace RealEstateBrowser
             }
         }
 
+        private void reset()
+        {
+            location.IsEnabled = true;
+            searchLocation.IsEnabled = true;
+            searchingWait.IsActive = false;
+        }
+
+        private async void autoLocate_Click(object sender, RoutedEventArgs e)
+        {
+            var accessStatus = await Geolocator.RequestAccessAsync();
+            searchingWait.IsActive = true;
+            autoLocate.Background = new SolidColorBrush(Color.FromArgb(255, 17, 191, 219));
+            autoLocate.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
+
+            location.IsEnabled = false;
+            searchLocation.IsEnabled = false;
+
+            /*
+            switch (accessStatus)
+            {
+                case GeolocationAccessStatus.Allowed:
+                    _rootPage.NotifyUser("Waiting for update...", NotifyType.StatusMessage);
+
+                    // If DesiredAccuracy or DesiredAccuracyInMeters are not set (or value is 0), DesiredAccuracy.Default is used.
+                    Geolocator geolocator = new Geolocator { DesiredAccuracyInMeters = _desireAccuracyInMetersValue };
+
+
+                    // Carry out the operation.
+                    Geoposition pos = await geolocator.GetGeopositionAsync();
+
+                    _rootPage.NotifyUser("Location updated.", NotifyType.StatusMessage);
+                    break;
+
+                case GeolocationAccessStatus.Denied:
+                    _rootPage.NotifyUser("Access to location is denied.", NotifyType.ErrorMessage);
+                    LocationDisabledMessage.Visibility = Visibility.Visible;
+                    UpdateLocationData(null);
+                    break;
+
+                case GeolocationAccessStatus.Unspecified:
+                    _rootPage.NotifyUser("Unspecified error.", NotifyType.ErrorMessage);
+                    UpdateLocationData(null);
+                    break;
+            }*/
+
+        }
     }
 }

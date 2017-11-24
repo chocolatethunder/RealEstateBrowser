@@ -78,9 +78,11 @@
                     Content="&#xE81D;"
                     FontFamily="Segoe MDL2 Assets"
                     FontSize="28"
+                    Click="autoLocate_Click"
                 />
 
                 <StackPanel 
+                    x:Name="errorBar"
                     Orientation="Horizontal"                             
                     RelativePanel.AlignHorizontalCenterWithPanel="True" 
                     RelativePanel.Below="location" 
@@ -103,8 +105,17 @@
                         Margin="0,0,0,2"
                         Foreground="PaleVioletRed"
                         VerticalAlignment="Center"
-                    />
+                    />                    
                 </StackPanel>
+                <ProgressRing
+                    x:Name="searchingWait"
+                    Width="50"
+                    Height="50"
+                    IsActive="False"
+                    Margin="0,20,0,0"
+                    RelativePanel.AlignHorizontalCenterWithPanel="True"
+                    RelativePanel.Below="errorBar"
+                />
 
             </RelativePanel>
 
