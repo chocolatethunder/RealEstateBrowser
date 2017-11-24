@@ -31,10 +31,15 @@ namespace RealEstateBrowser
 
         private void previousStep_Click(object sender, RoutedEventArgs e)
         {
+            errorMsg.Text = "";
+            errorSymbol.Text = "";
+
             if (questions.CanGoBack)
             {
                 questions.GoBack();
-            } else if (this.Frame.CanGoBack)
+                
+            }
+            else if (this.Frame.CanGoBack)
             {
                 this.Frame.GoBack();
             }
@@ -42,8 +47,41 @@ namespace RealEstateBrowser
 
         private void nextStep_Click(object sender, RoutedEventArgs e)
         {
-            questions.Navigate(typeof(Question2));
-            progressBar.Text = "\xECCA \xECCB \xECCA";
+
+            errorMsg.Text = "";
+            errorSymbol.Text = "";
+
+            if (questions.CanGoForward)
+            {
+                questions.GoForward();
+            }
+            else
+            {
+                Type currentFrame = questions.SourcePageType;
+
+                if (currentFrame.Name == "Question1")
+                {
+                    questions.Navigate(typeof(Question2));
+                    progressBar.Text = "\xECCA \xECCB \xECCA";
+                }
+
+                if (currentFrame.Name == "Question2")
+                {
+                    questions.Navigate(typeof(Question3));
+                    progressBar.Text = "\xECCA \xECCA \xECCB";
+                }
+
+                if (currentFrame.Name == "Question3")
+                {
+                    if (App.budgetFrom > App.budgetTo)
+                    {
+                        errorMsg.Text = "Your have entered an incorrect budget";
+                        errorSymbol.Text = "\xE783";
+                    }
+                }
+
+            }
+
         }
     }
 }

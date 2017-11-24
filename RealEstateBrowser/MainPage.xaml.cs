@@ -26,11 +26,42 @@ namespace RealEstateBrowser
         public MainPage()
         {
             this.InitializeComponent();
+            location.AddHandler(AutoSuggestBox.KeyDownEvent, new KeyEventHandler(location_KeyDown), true);
         }
 
         private void searchLocation_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(intro));
+            if (!location.Text.Equals(null) && !location.Text.Equals(""))
+            {
+                this.storeSearch();
+                this.Frame.Navigate(typeof(intro));
+            }
+            else
+            {
+                errorMsg.Text = "Please enter a location";
+                errorSymbol.Text = "\xE783";
+            }
         }
+
+        private void storeSearch()
+        {
+            App.previousSearches.Add(location.Text);
+        }
+
+        private void location_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+        {
+            var autosuggest = (AutoSuggestBox)sender;
+            var filtered = App.previousSearches.Where(p => p.StartsWith(autosuggest.Text)).ToArray();
+            autosuggest.ItemsSource = filtered;
+        }
+
+        private void location_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.Enter)
+            {
+                searchLocation_Click(sender, e);
+            }
+        }
+
     }
 }

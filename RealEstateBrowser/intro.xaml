@@ -45,29 +45,53 @@
 
                     <StackPanel VerticalAlignment="Center">
                         <TextBlock 
-                            Text="Welcome!"
-                            FontFamily="Roboto"
+                            Text="WELCOME"
                             FontSize="48" 
                             HorizontalAlignment="Center"/>
                         <TextBlock 
-                            Text="Let's get started!" 
-                            FontFamily="Roboto"
+                            Text="Let's get started!"
                             FontSize="20" 
                             HorizontalAlignment="Center"/>
                     </StackPanel>
 
-                    <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
-                        <Frame x:Name="questions">
-
+                    <RelativePanel Grid.Row="1" HorizontalAlignment="Center">
+                        <Frame 
+                            x:Name="questions" 
+                            RelativePanel.AlignHorizontalCenterWithPanel="True" 
+                            RelativePanel.AlignVerticalCenterWithPanel="True" 
+                        >
                         </Frame>
-                    </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="questions" Margin="0,20,0,0">
+                            <TextBlock 
+                                x:Name="errorSymbol"
+                                Text=""
+                                FontSize="26" 
+                                FontFamily="Segoe MDL2 Assets"
+                                Grid.Row="1" 
+                                Margin="0,0,10,0"
+                                Foreground="PaleVioletRed"
+                                VerticalAlignment="Center"
+                            />
+                            <TextBlock 
+                                x:Name="errorMsg"
+                                Text=""
+                                FontSize="22" 
+                                Grid.Row="1" 
+                                Margin="0,0,0,2"
+                                Foreground="PaleVioletRed"
+                                VerticalAlignment="Center"
+                            />
+                        </StackPanel>
+                        
+                    </RelativePanel>
 
                     <RelativePanel Grid.Row="2" VerticalAlignment="Bottom">
                         <Button 
                             x:Name="previousStep" 
                             Click="previousStep_Click" 
                             RelativePanel.AlignLeftWithPanel="True" 
-                            Width="125" 
+                            Width="130" 
                             Height="50"
                         >
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
@@ -77,15 +101,14 @@
                                     FontFamily="Segoe MDL2 Assets" 
                                     Text="&#xE76B;" 
                                     FontSize="20"
-                                    Margin="0,0,5,0"
+                                    Margin="5,2,8,0"
                                 />
                                 <TextBlock 
                                     Foreground="White" 
-                                    VerticalAlignment="Center" 
-                                    FontFamily="Roboto"
+                                    VerticalAlignment="Center"
                                     Text="BACK" 
                                     FontSize="28" 
-                                    Margin="0,0,0,2"
+                                    Margin="0,0,10,2"
                                 />
                             </StackPanel>
                         </Button>
@@ -102,26 +125,26 @@
                         <Button 
                             x:Name="nextStep" 
                             RelativePanel.AlignRightWithPanel="True" 
-                            Width="125" 
+                            Width="130" 
                             Height="50" 
                             Background="#11BFDB"
                             Click="nextStep_Click"
                         >
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">                                
                                 <TextBlock 
                                     Foreground="White" 
-                                    VerticalAlignment="Center" 
-                                    Text="NEXT" FontSize="28" 
-                                    FontFamily="Roboto" 
-                                    Margin="0,0,0,2"
+                                    VerticalAlignment="Center"
+                                    Text="NEXT" 
+                                    FontSize="28" 
+                                    Margin="10,0,0,2"
                                 />
                                 <TextBlock 
                                     Foreground="White" 
                                     VerticalAlignment="Center" 
                                     FontFamily="Segoe MDL2 Assets" 
                                     Text="&#xE76C;" 
-                                    FontSize="20" 
-                                    Margin="5,0,0,0"
+                                    FontSize="20"
+                                    Margin="8,2,5,0"
                                 />
                             </StackPanel>
                         </Button>

@@ -108,6 +108,9 @@
     <Compile Include="Question2.xaml.cs">
       <DependentUpon>Question2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Question3.xaml.cs">
+      <DependentUpon>Question3.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -143,6 +146,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Question2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Question3.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -20,16 +20,23 @@ namespace RealEstateBrowser
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Question1 : Page
+    public sealed partial class Question3 : Page
     {
-        public Question1()
+        public Question3()
         {
             this.InitializeComponent();
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        private void budgetFrom_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            base.OnNavigatedTo(e);
+            ComboBoxItem typeItem = (ComboBoxItem)budgetFrom.SelectedItem;
+            App.budgetFrom = Int32.Parse(typeItem.Content.ToString().Replace(",","").Replace("$",""));
+        }
+
+        private void budgetTo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {            
+            ComboBoxItem typeItem = (ComboBoxItem)budgetTo.SelectedItem;
+            App.budgetTo = Int32.Parse(typeItem.Content.ToString().Replace(",", "").Replace("$", ""));
         }
     }
 }
