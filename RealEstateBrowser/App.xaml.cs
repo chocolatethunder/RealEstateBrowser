@@ -7,6 +7,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Services.Maps;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -41,6 +42,7 @@ namespace RealEstateBrowser
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            MapService.ServiceToken = "yfqhsxtMlfp8jyAdLVBi~9GDeJrGkXBNGOmqnMBv_Bg~AqJfnPmjTda3MTiQXJvoskz5DrGMRyEv5d6NEqNQLC9MSJQxZjPtWb0_ZfSIXHCK";
         }
 
         /// <summary>

@@ -6,6 +6,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Devices.Geolocation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Services.Maps;
 using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -41,8 +42,8 @@ namespace RealEstateBrowser
             }
             else
             {
-                errorMsg.Text = "Please enter a location";
                 errorSymbol.Text = "\xE783";
+                errorMsg.Text = "Please enter a location";
             }
         }
 
@@ -71,46 +72,56 @@ namespace RealEstateBrowser
             location.IsEnabled = true;
             searchLocation.IsEnabled = true;
             searchingWait.IsActive = false;
+            autoLocate.Background = new SolidColorBrush(Color.FromArgb(20, 0, 0, 0));
         }
 
         private async void autoLocate_Click(object sender, RoutedEventArgs e)
         {
-            var accessStatus = await Geolocator.RequestAccessAsync();
+
             searchingWait.IsActive = true;
             autoLocate.Background = new SolidColorBrush(Color.FromArgb(255, 17, 191, 219));
-            autoLocate.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
-
             location.IsEnabled = false;
             searchLocation.IsEnabled = false;
 
-            /*
-            switch (accessStatus)
+            var gpsAccess = await Geolocator.RequestAccessAsync();
+
+            switch (gpsAccess)
             {
                 case GeolocationAccessStatus.Allowed:
-                    _rootPage.NotifyUser("Waiting for update...", NotifyType.StatusMessage);
+                    Geolocator geoLocator = new Geolocator { DesiredAccuracy = PositionAccuracy.Default };
+                    Geoposition pos = await geoLocator.GetGeopositionAsync();
+                    BasicGeoposition coords = new BasicGeoposition();
+                    coords.Latitude = pos.Coordinate.Point.Position.Latitude;
+                    coords.Longitude = pos.Coordinate.Point.Position.Longitude;
+                    Geopoint coordsToReverse = new Geopoint(coords);
+                    MapLocationFinderResult result = await MapLocationFinder.FindLocationsAtAsync(coordsToReverse);
 
-                    // If DesiredAccuracy or DesiredAccuracyInMeters are not set (or value is 0), DesiredAccuracy.Default is used.
-                    Geolocator geolocator = new Geolocator { DesiredAccuracyInMeters = _desireAccuracyInMetersValue };
-
-
-                    // Carry out the operation.
-                    Geoposition pos = await geolocator.GetGeopositionAsync();
-
-                    _rootPage.NotifyUser("Location updated.", NotifyType.StatusMessage);
+                    if(result.Status == MapLocationFinderStatus.Success)
+                    {
+                        location.Text = result.Locations[0].Address.Town;
+                        errorSymbol.Text = "";
+                        errorMsg.Text = "";
+                    }
+                    else
+                    {
+                        errorSymbol.Text = "\xE783";
+                        errorMsg.Text = "We couldn't find your location.";
+                    }
                     break;
 
                 case GeolocationAccessStatus.Denied:
-                    _rootPage.NotifyUser("Access to location is denied.", NotifyType.ErrorMessage);
-                    LocationDisabledMessage.Visibility = Visibility.Visible;
-                    UpdateLocationData(null);
+                    errorSymbol.Text = "\xE783";
+                    errorMsg.Text = "Please enable location access";
+                    await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-settings:privacy-location"));
                     break;
 
                 case GeolocationAccessStatus.Unspecified:
-                    _rootPage.NotifyUser("Unspecified error.", NotifyType.ErrorMessage);
-                    UpdateLocationData(null);
+                    errorSymbol.Text = "\xE783";
+                    errorMsg.Text = "An unknown error occured";
                     break;
-            }*/
+            }
 
+            this.reset();
         }
     }
 }
