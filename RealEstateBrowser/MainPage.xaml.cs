@@ -101,6 +101,7 @@ namespace RealEstateBrowser
                         location.Text = result.Locations[0].Address.Town;
                         errorSymbol.Text = "";
                         errorMsg.Text = "";
+                        this.Frame.Navigate(typeof(intro), result.Locations[0].Address.Town);
                     }
                     else
                     {

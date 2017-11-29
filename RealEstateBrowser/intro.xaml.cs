@@ -22,11 +22,30 @@ namespace RealEstateBrowser
     /// </summary>
     public sealed partial class intro : Page
     {
-        
+
         public intro()
         {
             this.InitializeComponent();
             questions.Navigate(typeof(Question1));
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            string loc = null;
+            loc = e.Parameter as string;
+            try
+            {
+                if (!loc.Equals(null))
+                {
+                    locationSymbol.Text = "\xE81D";
+                    locationDisplay.Text = e.Parameter as string;
+                }
+            } catch (Exception error)
+            {
+
+            }
+            
         }
 
         private void previousStep_Click(object sender, RoutedEventArgs e)
@@ -77,6 +96,10 @@ namespace RealEstateBrowser
                     {
                         errorMsg.Text = "Your have entered an incorrect budget";
                         errorSymbol.Text = "\xE783";
+                    }
+                    else
+                    {
+                        this.Frame.Navigate(typeof(MapResults));
                     }
                 }
 
