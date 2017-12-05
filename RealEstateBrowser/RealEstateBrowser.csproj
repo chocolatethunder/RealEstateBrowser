@@ -92,8 +92,17 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AdvancedOptions.xaml.cs">
+      <DependentUpon>AdvancedOptions.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ClearPage.xaml.cs">
+      <DependentUpon>ClearPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HouseProperties.xaml.cs">
+      <DependentUpon>HouseProperties.xaml</DependentUpon>
     </Compile>
     <Compile Include="intro.xaml.cs">
       <DependentUpon>intro.xaml</DependentUpon>
@@ -122,11 +131,14 @@
     <None Include="RealEstateBrowser_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\HousePics\house-1-1.jpeg" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-125.png" />
     <Content Include="Assets\LargeTile.scale-150.png" />
     <Content Include="Assets\LargeTile.scale-200.png" />
     <Content Include="Assets\LargeTile.scale-400.png" />
+    <Content Include="Assets\MenuButtonIcons\baths.png" />
+    <Content Include="Assets\MenuButtonIcons\beds.png" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-125.png" />
     <Content Include="Assets\SplashScreen.scale-150.png" />
@@ -158,6 +170,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="AdvancedOptions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ClearPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HouseProperties.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="intro.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
