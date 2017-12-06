@@ -32,7 +32,7 @@
             Margin="0,0,0,20"
              HorizontalAlignment="Center"
         />
-            <ComboBox Width="75" HorizontalAlignment="Center" FontSize="24">
+            <ComboBox x:Name="numBedrooms" Width="75" HorizontalAlignment="Center" FontSize="24" SelectionChanged="numBedrooms_SelectionChanged">
                 <ComboBoxItem IsSelected="True">1</ComboBoxItem>
                 <ComboBoxItem>2</ComboBoxItem>
                 <ComboBoxItem>3</ComboBoxItem>
@@ -49,7 +49,7 @@
             Margin="0,0,0,20"
              HorizontalAlignment="Center"
         />
-            <ComboBox Width="75" HorizontalAlignment="Center" FontSize="24">
+            <ComboBox x:Name="numBathrooms" Width="75" HorizontalAlignment="Center" FontSize="24" SelectionChanged="numBathrooms_SelectionChanged">
                 <ComboBoxItem IsSelected="True">1</ComboBoxItem>
                 <ComboBoxItem>2</ComboBoxItem>
                 <ComboBoxItem>3</ComboBoxItem>

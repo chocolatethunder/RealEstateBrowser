@@ -26,5 +26,41 @@ namespace RealEstateBrowser
         {
             this.InitializeComponent();
         }
+
+        private void numBedrooms_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var comboBoxItem = numBedrooms.Items[numBedrooms.SelectedIndex] as ComboBoxItem;
+            if (comboBoxItem != null)
+            {
+                string data = null;
+                if (comboBoxItem.Content.ToString().Equals("5+"))
+                {
+                    data = "5";
+                }
+                else
+                {
+                    data = comboBoxItem.Content.ToString();
+                }
+                App.searchParam.setBedrooms(Int32.Parse(data));
+            }
+        }
+
+        private void numBathrooms_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var comboBoxItem = numBathrooms.Items[numBathrooms.SelectedIndex] as ComboBoxItem;
+            if (comboBoxItem != null)
+            {
+                string data = null;
+                if (comboBoxItem.Content.ToString().Equals("5+"))
+                {
+                    data = "5";
+                }
+                else
+                {
+                    data = comboBoxItem.Content.ToString();
+                }
+                App.searchParam.setBedrooms(Int32.Parse(data));
+            }
+        }
     }
 }

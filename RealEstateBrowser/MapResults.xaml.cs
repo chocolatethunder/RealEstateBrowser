@@ -31,8 +31,8 @@ namespace RealEstateBrowser
             this.InitializeComponent();
 
             BasicGeoposition location = new BasicGeoposition();
-            location.Latitude = 51;
-            location.Longitude = -114;
+            location.Latitude = App.searchParam.getLat();
+            location.Longitude = App.searchParam.getLon();
 
             MapControl1.Center = new Geopoint(location);
         }

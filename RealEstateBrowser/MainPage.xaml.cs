@@ -33,29 +33,36 @@ namespace RealEstateBrowser
             location.AddHandler(AutoSuggestBox.KeyDownEvent, new KeyEventHandler(location_KeyDown), true);
         }
 
-        private void searchLocation_Click(object sender, RoutedEventArgs e)
+        private async void searchLocation_Click(object sender, RoutedEventArgs e)
         {
             if (!location.Text.Equals(null) && !location.Text.Equals(""))
             {
-                this.storeSearch();
-                this.Frame.Navigate(typeof(intro));
+                searchingWait.IsActive = true;
+                App.searchParam.addToSearchHistory(location.Text);
+                MapLocationFinderResult result = await App.searchParam.getLocDataFromCity(location.Text);
+
+                if (result.Status == MapLocationFinderStatus.Success)
+                {
+                    this.Frame.Navigate(typeof(intro));
+                }
+                else
+                {
+                    errorSymbol.Text = "\xE783";
+                    errorMsg.Text = "We couldn't find your location.";
+                }
+                
             }
             else
             {
                 errorSymbol.Text = "\xE783";
-                errorMsg.Text = "Please enter a location";
+                errorMsg.Text = "Please enter a valid location";
             }
-        }
-
-        private void storeSearch()
-        {
-            App.previousSearches.Add(location.Text);
         }
 
         private void location_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
             var autosuggest = (AutoSuggestBox)sender;
-            var filtered = App.previousSearches.Where(p => p.StartsWith(autosuggest.Text)).ToArray();
+            var filtered = App.searchParam.getSearchHistory().Where(p => p.StartsWith(autosuggest.Text)).ToArray();
             autosuggest.ItemsSource = filtered;
         }
 
@@ -83,25 +90,20 @@ namespace RealEstateBrowser
             location.IsEnabled = false;
             searchLocation.IsEnabled = false;
 
-            var gpsAccess = await Geolocator.RequestAccessAsync();
+            GeolocationAccessStatus status = await App.searchParam.getGPSAccessStatus();
 
-            switch (gpsAccess)
+            switch (status)
             {
                 case GeolocationAccessStatus.Allowed:
-                    Geolocator geoLocator = new Geolocator { DesiredAccuracy = PositionAccuracy.Default };
-                    Geoposition pos = await geoLocator.GetGeopositionAsync();
-                    BasicGeoposition coords = new BasicGeoposition();
-                    coords.Latitude = pos.Coordinate.Point.Position.Latitude;
-                    coords.Longitude = pos.Coordinate.Point.Position.Longitude;
-                    Geopoint coordsToReverse = new Geopoint(coords);
-                    MapLocationFinderResult result = await MapLocationFinder.FindLocationsAtAsync(coordsToReverse);
+
+                    MapLocationFinderResult result = await App.searchParam.getLocationData();
 
                     if(result.Status == MapLocationFinderStatus.Success)
                     {
                         location.Text = result.Locations[0].Address.Town;
                         errorSymbol.Text = "";
                         errorMsg.Text = "";
-                        this.Frame.Navigate(typeof(intro), result.Locations[0].Address.Town);
+                        this.Frame.Navigate(typeof(intro));
                     }
                     else
                     {

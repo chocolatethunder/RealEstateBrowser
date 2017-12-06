@@ -123,6 +123,7 @@
     <Compile Include="Question3.xaml.cs">
       <DependentUpon>Question3.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Search.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

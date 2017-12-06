@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Services.Maps;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -33,13 +34,14 @@ namespace RealEstateBrowser
         {
             base.OnNavigatedTo(e);
             string loc = null;
-            loc = e.Parameter as string;
+            loc = App.searchParam.getSearchCity();
+
             try
             {
                 if (!loc.Equals(null))
                 {
                     locationSymbol.Text = "\xE81D";
-                    locationDisplay.Text = e.Parameter as string;
+                    locationDisplay.Text = loc;
                 }
             } catch (Exception error)
             {

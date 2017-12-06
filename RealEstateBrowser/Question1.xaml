@@ -26,7 +26,7 @@
             Margin="0,0,0,20"
              HorizontalAlignment="Center"
         />
-        <ComboBox Width="250" HorizontalAlignment="Center" FontSize="24">
+        <ComboBox x:Name="houseType" Width="250" HorizontalAlignment="Center" FontSize="24" SelectionChanged="houseType_SelectionChanged">
             <ComboBoxItem IsSelected="True">House</ComboBoxItem>
             <ComboBoxItem>Condo</ComboBoxItem>
             <ComboBoxItem>TownHouse</ComboBoxItem>

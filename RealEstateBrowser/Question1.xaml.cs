@@ -31,5 +31,14 @@ namespace RealEstateBrowser
         {
             base.OnNavigatedTo(e);
         }
+
+        private void houseType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var comboBoxItem = houseType.Items[houseType.SelectedIndex] as ComboBoxItem;
+            if (comboBoxItem != null)
+            {
+                App.searchParam.setHouseType(comboBoxItem.Content.ToString());
+            }
+        }
     }
 }

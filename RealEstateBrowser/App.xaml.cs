@@ -26,13 +26,18 @@ namespace RealEstateBrowser
     {
 
         // Search criteria
+        /*
         internal static String city;
         internal static String houseType;
         internal static int bathrooms;
         internal static int bedrooms;
+        internal static List<String> previousSearches = new List<string>();
+        */
         internal static int budgetFrom;
         internal static int budgetTo;        
-        internal static List<String> previousSearches = new List<string>();
+        
+
+        internal static Search searchParam = new Search();
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
