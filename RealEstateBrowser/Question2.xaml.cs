@@ -59,7 +59,7 @@ namespace RealEstateBrowser
                 {
                     data = comboBoxItem.Content.ToString();
                 }
-                App.searchParam.setBedrooms(Int32.Parse(data));
+                App.searchParam.setBathrooms(Int32.Parse(data));
             }
         }
     }

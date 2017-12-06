@@ -11,8 +11,10 @@ namespace RealEstateBrowser
     class Search
     {
         private MapLocationFinderResult locationData;
-        private int bedrooms;
-        private int bathrooms;
+        private int bedroomsLow;
+        private int bedroomsHigh;
+        private int bathroomsLow;
+        private int bathroomsHigh;
         private int budgetHigh;
         private int budgetLow;
         private string houseType;
@@ -46,9 +48,42 @@ namespace RealEstateBrowser
             return this.locationData;
         }
 
+        public bool Between(double number, double min, double max)
+        {
+            return number >= min && number <= max;
+        }
+
+        public bool Between(int number, int min, int max)
+        {
+            return number >= min && number <= max;
+        }
+
         public List<House> getSearchResults()
         {
-            return App.listings;
+            List<House> results = new List<House>();
+
+            // Perform filter here
+            foreach (House listing in App.listings)
+            {
+                if (this.Between(listing._latitude, this.locationData.Locations[0].Point.Position.Latitude - 0.5, this.locationData.Locations[0].Point.Position.Latitude + 0.5))
+                {
+                    if (this.Between(listing._price, this.budgetLow, this.budgetHigh) || (this.budgetHigh == 1000000 && listing._price >= 1000000))
+                    {
+                        if (this.Between(listing._bathrooms, this.bathroomsLow, this.bathroomsHigh) && this.Between(listing._bedrooms, this.bedroomsLow, this.bedroomsHigh))
+                        {
+                            if (listing._propertyType.Equals(this.houseType))
+                            {
+                                results.Add(listing);
+                            }
+                           
+                        }
+                            
+                    }
+
+                }
+                
+            }
+            return results;
         }
 
         public string getSearchCity()
@@ -95,22 +130,22 @@ namespace RealEstateBrowser
 
         public void setBathrooms(int bathrooms)
         {
-            this.bathrooms = bathrooms;
+            this.bathroomsLow = this.bathroomsHigh = bathrooms;
         }
 
         public int getBathrooms()
         {
-            return this.bathrooms;
+            return this.bathroomsLow;
         }
 
         public void setBedrooms(int bedrooms)
         {
-            this.bedrooms = bedrooms;
+            this.bedroomsLow = this.bedroomsHigh = bedrooms;
         }
 
         public int getBedrooms()
         {
-            return this.bedrooms;
+            return this.bedroomsLow;
         }
 
         public void setBudgetFrom(int budget)

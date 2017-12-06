@@ -29,7 +29,7 @@
         <ComboBox x:Name="houseType" Width="250" HorizontalAlignment="Center" FontSize="24" SelectionChanged="houseType_SelectionChanged">
             <ComboBoxItem IsSelected="True">House</ComboBoxItem>
             <ComboBoxItem>Condo</ComboBoxItem>
-            <ComboBoxItem>TownHouse</ComboBoxItem>
+            <ComboBoxItem>Townhouse</ComboBoxItem>
         </ComboBox>
     </StackPanel>
 </Page>

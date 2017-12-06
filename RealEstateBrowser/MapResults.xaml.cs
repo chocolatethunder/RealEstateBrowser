@@ -68,7 +68,7 @@ namespace RealEstateBrowser
                     var myImageUri = new Uri("ms-appx:///Assets/icon-mid.png");
                     pushPin.Image = RandomAccessStreamReference.CreateFromUri(myImageUri);
                 }
-                else if (listing._price >= tier2 && listing._price < tier3)
+                else if (listing._price >= tier2)
                 {
                     var myImageUri = new Uri("ms-appx:///Assets/icon-high.png");
                     pushPin.Image = RandomAccessStreamReference.CreateFromUri(myImageUri);
@@ -86,7 +86,7 @@ namespace RealEstateBrowser
 
         private void openFavourites_Click(object sender, RoutedEventArgs e)
         {
-            propertyDetails.Navigate(typeof(HouseProperties));
+            
         }
 
         private void propertyDetails_LostFocus(object sender, RoutedEventArgs e)

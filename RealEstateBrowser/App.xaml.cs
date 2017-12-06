@@ -50,9 +50,11 @@ namespace RealEstateBrowser
                 500000, 
                 new List<String>() { "Assets/HousePics/house-1-1.jpeg", "Assets/HousePics/house-1-2.jpeg" }, 
                 "House", 
-                new Dictionary<String, Boolean>() { { "Garage", true }, { "Backyard", true }, { "Furnished", false }, { "Driveway", true }, { "Frontyard", true }, { "Fireplace", true } },
+                new Dictionary<String, Boolean>() { { "Garage", true }, { "Backyard", true }, { "Furnished", false }, { "Fireplace", true }, { "Petfriendly", true } },
                 "A beautiful home",
-                "You will love this place. Been built in 2015."
+                "You will love this place. Been built in 2015. Looking for that perfect house? Well you've come to the right place. This is a one of a kind an amazing home where you and your dog can live in peace. You can also shoot the neighbours if they come across your lawn.",
+                "dude-1.png",
+                new String[] { "cosy", "homely", "pets"}
                 )
             );
 
@@ -64,10 +66,12 @@ namespace RealEstateBrowser
                 1360,
                 800000,
                 new List<String>() { "Assets/HousePics/house-1-1.jpeg", "Assets/HousePics/house-1-2.jpeg" },
-                "House",
-                new Dictionary<String, Boolean>() { { "Garage", true }, { "Backyard", true }, { "Furnished", false }, { "Driveway", true }, { "Frontyard", true }, { "Fireplace", true } },
+                "Townhouse",
+                new Dictionary<String, Boolean>() { { "Garage", true }, { "Backyard", true }, { "Furnished", false }, { "Fireplace", true }, { "Petfriendly", false } },
                 "A cosy home",
-                "You will love this place. Been built in 1998."
+                "You will love this place. Been built in 1998.",
+                "girl-1.png",
+                new String[] { "lovely", "furnished", "closttotransit" }
                 )
             );
 
@@ -77,12 +81,14 @@ namespace RealEstateBrowser
                 2,
                 2,
                 1360,
-                250000,
+                2500000,
                 new List<String>() { "Assets/HousePics/house-1-1.jpeg", "Assets/HousePics/house-1-2.jpeg" },
                 "House",
-                new Dictionary<String, Boolean>() { { "Garage", true }, { "Backyard", true }, { "Furnished", false }, { "Driveway", true }, { "Frontyard", true }, { "Fireplace", true } },
+                new Dictionary<String, Boolean>() { { "Garage", true }, { "Backyard", true }, { "Furnished", true }, { "Fireplace", true }, { "Petfriendly", false } },
                 "Very unique home",
-                "Try not to get shot. It is in a sketchy area."
+                "Try not to get shot. It is in a sketchy area.",
+                "dude-3.png",
+                new String[] { "deadly", "scared", "murder" }
                 )
             );
 

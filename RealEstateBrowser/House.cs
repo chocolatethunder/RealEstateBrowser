@@ -18,9 +18,11 @@ namespace RealEstateBrowser
         public List<String> _images { get; }
         public String _propertyType { get; }
         public Dictionary<String, Boolean> _features { get; }
-        public String _title { get; set; }
-        public String _description { get; set; }
-
+        public String _title { get; }
+        public String _description { get; }
+        public String _seller { get; }
+        public String _id { get; }
+        public String[] _tags { get; }
         public House(
             double latitude,
             double longitude,
@@ -32,7 +34,9 @@ namespace RealEstateBrowser
             String propertyType,
             Dictionary<String, Boolean> features,
             String title,
-            String description
+            String description,
+            String seller,
+            String[] tags
         )
         {
             this._latitude = latitude;
@@ -46,6 +50,11 @@ namespace RealEstateBrowser
             this._features = features.ToDictionary(entry => entry.Key, entry => entry.Value);
             this._title = title;
             this._description = description;
+            this._seller = seller;
+            this._tags = tags;
+
+            Guid id = new Guid();
+            this._id = id.ToString();
         }
 
     }

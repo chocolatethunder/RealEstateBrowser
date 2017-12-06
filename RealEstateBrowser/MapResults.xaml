@@ -141,6 +141,57 @@
                 Width="50"
                 Height="50"
                 Margin="2 0 0 0"
+                Padding="0 0 0 5"
+            >
+                <TextBlock
+                    FontSize="32"
+                    Text="$"
+                    Foreground="#FFFFFF"
+                />
+                <Button.Flyout>
+                    <Flyout>
+                        <StackPanel Orientation="Horizontal">
+                            <ComboBox x:Name="budgetFrom" Width="125" HorizontalAlignment="Center">
+                                <ComboBoxItem IsSelected="True">$0</ComboBoxItem>
+                                <ComboBoxItem>$100,000</ComboBoxItem>
+                                <ComboBoxItem>$200,000</ComboBoxItem>
+                                <ComboBoxItem>$300,000</ComboBoxItem>
+                                <ComboBoxItem>$400,000</ComboBoxItem>
+                                <ComboBoxItem>$500,000</ComboBoxItem>
+                                <ComboBoxItem>$600,000</ComboBoxItem>
+                                <ComboBoxItem>$700,000</ComboBoxItem>
+                                <ComboBoxItem>$800,000</ComboBoxItem>
+                                <ComboBoxItem>$900,000</ComboBoxItem>
+                                <ComboBoxItem>$1,000,000</ComboBoxItem>
+                            </ComboBox>
+                            <TextBlock Text="to" Width="30" FontSize="16" VerticalAlignment="Center" TextAlignment="Center"/>
+                            <ComboBox x:Name="budgetTo" Width="125" HorizontalAlignment="Center">
+                                <ComboBoxItem IsSelected="True">$100,000</ComboBoxItem>
+                                <ComboBoxItem>$200,000</ComboBoxItem>
+                                <ComboBoxItem>$300,000</ComboBoxItem>
+                                <ComboBoxItem>$400,000</ComboBoxItem>
+                                <ComboBoxItem>$500,000</ComboBoxItem>
+                                <ComboBoxItem>$600,000</ComboBoxItem>
+                                <ComboBoxItem>$700,000</ComboBoxItem>
+                                <ComboBoxItem>$800,000</ComboBoxItem>
+                                <ComboBoxItem>$900,000</ComboBoxItem>
+                                <ComboBoxItem>$1,000,000+</ComboBoxItem>
+                            </ComboBox>
+
+                            <Button 
+                                x:Name="updateBudget"
+                                Content="Update"
+                                Margin="10 0 0 0"
+                            />
+                        </StackPanel>
+                    </Flyout>
+                </Button.Flyout>
+            </Button>
+
+            <Button 
+                Width="50"
+                Height="50"
+                Margin="2 0 0 0"
             >
                 <TextBlock
                     FontFamily="Segoe MDL2 Assets"

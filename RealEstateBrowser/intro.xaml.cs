@@ -101,7 +101,15 @@ namespace RealEstateBrowser
                     }
                     else
                     {
-                        this.Frame.Navigate(typeof(MapResults));
+                        if (!App.searchParam.getSearchResults().Any())
+                        {
+                            errorMsg.Text = "We couldn't find any matches for you criteria";
+                            errorSymbol.Text = "\xE783";
+                        } else
+                        {
+                            this.Frame.Navigate(typeof(MapResults));
+                        }
+                        
                     }
                 }
 
