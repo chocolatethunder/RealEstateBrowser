@@ -48,7 +48,7 @@ namespace RealEstateBrowser
                 2, 
                 1360, 
                 500000, 
-                new List<String>() { "Assets/HousePics/house-1-1.jpeg", "Assets/HousePics/house-1-2.jpeg" }, 
+                new List<String>() { "house-1-1.jpeg", "house-1-2.jpeg" }, 
                 "House", 
                 new Dictionary<String, Boolean>() { { "Garage", true }, { "Backyard", true }, { "Furnished", false }, { "Fireplace", true }, { "Petfriendly", true } },
                 "A beautiful home",
