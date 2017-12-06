@@ -101,6 +101,7 @@
     <Compile Include="ClearPage.xaml.cs">
       <DependentUpon>ClearPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="House.cs" />
     <Compile Include="HouseProperties.xaml.cs">
       <DependentUpon>HouseProperties.xaml</DependentUpon>
     </Compile>
@@ -133,6 +134,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\HousePics\house-1-1.jpeg" />
+    <Content Include="Assets\HousePics\house-1-2.jpeg" />
+    <Content Include="Assets\icon-high.png" />
+    <Content Include="Assets\icon-low.png" />
+    <Content Include="Assets\icon-mid.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-125.png" />
     <Content Include="Assets\LargeTile.scale-150.png" />

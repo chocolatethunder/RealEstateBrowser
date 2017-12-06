@@ -10,7 +10,6 @@ namespace RealEstateBrowser
 {
     class Search
     {
-
         private MapLocationFinderResult locationData;
         private int bedrooms;
         private int bathrooms;
@@ -38,15 +37,18 @@ namespace RealEstateBrowser
             coords.Longitude = pos.Coordinate.Point.Position.Longitude;
             Geopoint coordsToReverse = new Geopoint(coords);
             this.locationData = await MapLocationFinder.FindLocationsAtAsync(coordsToReverse);
-
             return this.locationData;
         }
 
         public async Task<MapLocationFinderResult> getLocDataFromCity(string address)
         {
             this.locationData = await MapLocationFinder.FindLocationsAsync(address, null);
-
             return this.locationData;
+        }
+
+        public List<House> getSearchResults()
+        {
+            return App.listings;
         }
 
         public string getSearchCity()

@@ -70,7 +70,11 @@
             />
         </Grid>
 
-        
+        <TextBlock
+            x:Name="propTitle"
+            Text=""
+            Grid.Row="1"
+         />
 
     </Grid>
 </Page>

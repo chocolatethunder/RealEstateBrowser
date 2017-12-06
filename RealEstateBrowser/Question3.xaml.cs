@@ -36,7 +36,7 @@ namespace RealEstateBrowser
         private void budgetTo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {            
             ComboBoxItem typeItem = (ComboBoxItem)budgetTo.SelectedItem;
-            App.searchParam.setBudgetTo(Int32.Parse(typeItem.Content.ToString().Replace(",", "").Replace("$", "")));
+            App.searchParam.setBudgetTo(Int32.Parse(typeItem.Content.ToString().Replace(",", "").Replace("$", "").Replace("+","")));
         }
     }
 }

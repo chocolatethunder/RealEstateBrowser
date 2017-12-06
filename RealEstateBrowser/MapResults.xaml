@@ -24,6 +24,7 @@
             x:Name="MapControl1"
             MapServiceToken="yfqhsxtMlfp8jyAdLVBi~9GDeJrGkXBNGOmqnMBv_Bg~AqJfnPmjTda3MTiQXJvoskz5DrGMRyEv5d6NEqNQLC9MSJQxZjPtWb0_ZfSIXHCK"
             ZoomLevel="12"
+            MapElementClick="MapControl1_MapElementClick"
         />
 
         <Button 

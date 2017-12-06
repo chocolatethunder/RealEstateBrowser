@@ -25,19 +25,9 @@ namespace RealEstateBrowser
     sealed partial class App : Application
     {
 
-        // Search criteria
-        /*
-        internal static String city;
-        internal static String houseType;
-        internal static int bathrooms;
-        internal static int bedrooms;
-        internal static List<String> previousSearches = new List<string>();
-        */
-        internal static int budgetFrom;
-        internal static int budgetTo;        
-        
-
         internal static Search searchParam = new Search();
+        internal static List<House> listings = new List<House>();
+        internal static House currentDetail;
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
@@ -48,6 +38,54 @@ namespace RealEstateBrowser
             this.InitializeComponent();
             this.Suspending += OnSuspending;
             MapService.ServiceToken = "yfqhsxtMlfp8jyAdLVBi~9GDeJrGkXBNGOmqnMBv_Bg~AqJfnPmjTda3MTiQXJvoskz5DrGMRyEv5d6NEqNQLC9MSJQxZjPtWb0_ZfSIXHCK";
+
+            // Fake Real Estate Data
+            
+            App.listings.Add(new House(
+                51.0098224, 
+                -114.1044374, 
+                2, 
+                2, 
+                1360, 
+                500000, 
+                new List<String>() { "Assets/HousePics/house-1-1.jpeg", "Assets/HousePics/house-1-2.jpeg" }, 
+                "House", 
+                new Dictionary<String, Boolean>() { { "Garage", true }, { "Backyard", true }, { "Furnished", false }, { "Driveway", true }, { "Frontyard", true }, { "Fireplace", true } },
+                "A beautiful home",
+                "You will love this place. Been built in 2015."
+                )
+            );
+
+            App.listings.Add(new House(
+                51.1317108,
+                -114.1478676,
+                2,
+                2,
+                1360,
+                800000,
+                new List<String>() { "Assets/HousePics/house-1-1.jpeg", "Assets/HousePics/house-1-2.jpeg" },
+                "House",
+                new Dictionary<String, Boolean>() { { "Garage", true }, { "Backyard", true }, { "Furnished", false }, { "Driveway", true }, { "Frontyard", true }, { "Fireplace", true } },
+                "A cosy home",
+                "You will love this place. Been built in 1998."
+                )
+            );
+
+            App.listings.Add(new House(
+                51.0699442,
+                -113.9276259,
+                2,
+                2,
+                1360,
+                250000,
+                new List<String>() { "Assets/HousePics/house-1-1.jpeg", "Assets/HousePics/house-1-2.jpeg" },
+                "House",
+                new Dictionary<String, Boolean>() { { "Garage", true }, { "Backyard", true }, { "Furnished", false }, { "Driveway", true }, { "Frontyard", true }, { "Fireplace", true } },
+                "Very unique home",
+                "Try not to get shot. It is in a sketchy area."
+                )
+            );
+
         }
 
         /// <summary>

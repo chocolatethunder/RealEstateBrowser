@@ -7,10 +7,12 @@ using Windows.ApplicationModel.Core;
 using Windows.Devices.Geolocation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage.Streams;
 using Windows.UI.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Maps;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
@@ -35,6 +37,46 @@ namespace RealEstateBrowser
             location.Longitude = App.searchParam.getLon();
 
             MapControl1.Center = new Geopoint(location);
+
+            int budgetRange = App.searchParam.getBudgetTo() - App.searchParam.getBudgetFrom();
+            int budgetDivide = budgetRange / 3;
+            int startBudget = App.searchParam.getBudgetFrom();
+            int tier1 = startBudget + budgetDivide;
+            int tier2 = startBudget + budgetDivide * 2;
+            int tier3 = startBudget + budgetDivide * 3;
+
+            // Setup all the push pins
+
+            foreach (House listing in App.searchParam.getSearchResults())
+            {
+                var pushPin = new MapIcon();
+                pushPin.Location = new Geopoint(new BasicGeoposition()
+                {
+                    Latitude = listing._latitude,
+                    Longitude = listing._longitude
+                });
+                pushPin.CollisionBehaviorDesired = MapElementCollisionBehavior.RemainVisible;
+                pushPin.NormalizedAnchorPoint = new Point(0.5, 0.80);
+
+                if (listing._price > startBudget && listing._price < tier1)
+                {
+                    var myImageUri = new Uri("ms-appx:///Assets/icon-low.png");
+                    pushPin.Image = RandomAccessStreamReference.CreateFromUri(myImageUri);
+                }
+                else if (listing._price >= tier1 && listing._price < tier2)
+                {
+                    var myImageUri = new Uri("ms-appx:///Assets/icon-mid.png");
+                    pushPin.Image = RandomAccessStreamReference.CreateFromUri(myImageUri);
+                }
+                else if (listing._price >= tier2 && listing._price < tier3)
+                {
+                    var myImageUri = new Uri("ms-appx:///Assets/icon-high.png");
+                    pushPin.Image = RandomAccessStreamReference.CreateFromUri(myImageUri);
+                }
+
+                MapControl1.MapElements.Add(pushPin);
+            }
+
         }
 
         private void backHome_Click(object sender, RoutedEventArgs e)
@@ -57,22 +99,19 @@ namespace RealEstateBrowser
             optionsModal.Navigate(typeof(AdvancedOptions));
         }
 
-        /*
-        private async void Test_Me(object sender, RoutedEventArgs e)
+        private void MapControl1_MapElementClick(MapControl sender, MapElementClickEventArgs args)
         {
-            CoreApplicationView newView = CoreApplication.CreateNewView();
-            int newViewId = 0;
-            await newView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-            {
-                Frame frame = new Frame();
-                frame.Navigate(typeof(HouseProperties), null);
-                Window.Current.Content = frame;
-                Window.Current.Activate();
+            MapIcon myClickedIcon = args.MapElements.FirstOrDefault(x => x is MapIcon) as MapIcon;
 
-                newViewId = ApplicationView.GetForCurrentView().Id;
-            });
-            bool viewShown = await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newViewId);
+            foreach (House listing in App.searchParam.getSearchResults())
+            {
+                if (myClickedIcon.Location.Position.Latitude == listing._latitude && myClickedIcon.Location.Position.Longitude == listing._longitude)
+                {
+                    App.currentDetail = listing;
+                    propertyDetails.Navigate(typeof(HouseProperties));
+                }
+            }
         }
-        */
+
     }
 }

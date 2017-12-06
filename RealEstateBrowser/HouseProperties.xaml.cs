@@ -26,6 +26,7 @@ namespace RealEstateBrowser
         public HouseProperties()
         {
             this.InitializeComponent();
+            propTitle.Text = App.currentDetail._title;
         }
 
         private void closeProperty_Click(object sender, RoutedEventArgs e)
@@ -33,18 +34,5 @@ namespace RealEstateBrowser
             this.Frame.Navigate(typeof(ClearPage));
         }
 
-        /*
-        protected void SetUpPageAnimation()
-        {
-            TransitionCollection collection = new TransitionCollection();
-            NavigationThemeTransition theme = new NavigationThemeTransition();
-
-            var info = new ContinuumNavigationTransitionInfo();
-
-            theme.DefaultNavigationTransitionInfo = info;
-            collection.Add(theme);
-            this.Transitions = collection;
-        }
-        */
     }
 }
