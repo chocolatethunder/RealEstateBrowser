@@ -38,6 +38,13 @@ namespace RealEstateBrowser
 
             MapControl1.Center = new Geopoint(location);
 
+            this.setPushPins();
+        }
+
+        private void setPushPins(Boolean reset = false)
+        {
+            // Setup all the push pins
+
             int budgetRange = App.searchParam.getBudgetTo() - App.searchParam.getBudgetFrom();
             int budgetDivide = budgetRange / 3;
             int startBudget = App.searchParam.getBudgetFrom();
@@ -45,7 +52,10 @@ namespace RealEstateBrowser
             int tier2 = startBudget + budgetDivide * 2;
             int tier3 = startBudget + budgetDivide * 3;
 
-            // Setup all the push pins
+            if (reset)
+            {
+                MapControl1.MapElements.Clear();
+            }
 
             foreach (House listing in App.searchParam.getSearchResults())
             {
@@ -76,7 +86,6 @@ namespace RealEstateBrowser
 
                 MapControl1.MapElements.Add(pushPin);
             }
-
         }
 
         private void backHome_Click(object sender, RoutedEventArgs e)
@@ -113,5 +122,93 @@ namespace RealEstateBrowser
             }
         }
 
+        private void updateBeds_Click(object sender, RoutedEventArgs e)
+        {
+            var comboBoxItem = bedMin.Items[bedMin.SelectedIndex] as ComboBoxItem;
+            if (comboBoxItem != null)
+            {
+                string data = null;
+                if (comboBoxItem.Content.ToString().Equals("5+"))
+                {
+                    data = "5";
+                }
+                else
+                {
+                    data = comboBoxItem.Content.ToString();
+                }
+                App.searchParam.setBedroomMin(Int32.Parse(data));
+            }
+
+            comboBoxItem = bedMax.Items[bedMax.SelectedIndex] as ComboBoxItem;
+            if (comboBoxItem != null)
+            {
+                string data = null;
+                if (comboBoxItem.Content.ToString().Equals("5+"))
+                {
+                    data = "5";
+                }
+                else
+                {
+                    data = comboBoxItem.Content.ToString();
+                }
+                App.searchParam.setBedroomMax(Int32.Parse(data));
+            }
+            this.setPushPins(true);
+        }
+
+        private void updateBath_Click(object sender, RoutedEventArgs e)
+        {
+            var comboBoxItem = bathMin.Items[bathMin.SelectedIndex] as ComboBoxItem;
+            if (comboBoxItem != null)
+            {
+                string data = null;
+                if (comboBoxItem.Content.ToString().Equals("5+"))
+                {
+                    data = "5";
+                }
+                else
+                {
+                    data = comboBoxItem.Content.ToString();
+                }
+                App.searchParam.setBathroomMin(Int32.Parse(data));
+            }
+
+            comboBoxItem = bathMax.Items[bathMax.SelectedIndex] as ComboBoxItem;
+            if (comboBoxItem != null)
+            {
+                string data = null;
+                if (comboBoxItem.Content.ToString().Equals("5+"))
+                {
+                    data = "5";
+                }
+                else
+                {
+                    data = comboBoxItem.Content.ToString();
+                }
+                App.searchParam.setBathroomMax(Int32.Parse(data));
+            }
+            this.setPushPins(true);
+        }
+
+        private void updateBudget_Click(object sender, RoutedEventArgs e)
+        {
+            ComboBoxItem typeItem = (ComboBoxItem)budgetFrom.SelectedItem;
+            App.searchParam.setBudgetFrom(Int32.Parse(typeItem.Content.ToString().Replace(",", "").Replace("$", "")));
+
+            typeItem = (ComboBoxItem)budgetTo.SelectedItem;
+            App.searchParam.setBudgetTo(Int32.Parse(typeItem.Content.ToString().Replace(",", "").Replace("$", "").Replace("+", "")));
+
+            this.setPushPins(true);
+        }
+
+        private void updateHouseType_Click(object sender, RoutedEventArgs e)
+        {
+            var comboBoxItem = propType.Items[propType.SelectedIndex] as ComboBoxItem;
+            if (comboBoxItem != null)
+            {
+                App.searchParam.setHouseType(comboBoxItem.Content.ToString());
+            }
+            this.setPushPins(true);
+        }
     }
 }

@@ -359,7 +359,7 @@
                 </Ellipse>
                 <TextBlock
                     x:Name="proptype"
-                    Text="Townhouse"
+                    Text=""
                     FontSize="40"
                     FontWeight="SemiBold"
                     Grid.Column="7"

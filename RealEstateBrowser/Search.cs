@@ -133,6 +133,16 @@ namespace RealEstateBrowser
             this.bathroomsLow = this.bathroomsHigh = bathrooms;
         }
 
+        public void setBathroomMin(int bathrooms)
+        {
+            this.bathroomsLow = bathrooms;
+        }
+
+        public void setBathroomMax(int bathrooms)
+        {
+            this.bathroomsHigh = bathrooms;
+        }
+
         public int getBathrooms()
         {
             return this.bathroomsLow;
@@ -141,6 +151,16 @@ namespace RealEstateBrowser
         public void setBedrooms(int bedrooms)
         {
             this.bedroomsLow = this.bedroomsHigh = bedrooms;
+        }
+
+        public void setBedroomMin(int bedrooms)
+        {
+            this.bedroomsLow = bedrooms;
+        }
+
+        public void setBedroomMax(int bedrooms)
+        {
+            this.bedroomsHigh = bedrooms;
         }
 
         public int getBedrooms()
