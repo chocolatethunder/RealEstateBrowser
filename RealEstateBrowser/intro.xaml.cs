@@ -94,7 +94,7 @@ namespace RealEstateBrowser
 
                 if (currentFrame.Name == "Question3")
                 {
-                    if (App.budgetFrom > App.budgetTo)
+                    if (App.searchParam.getBudgetFrom() > App.searchParam.getBudgetTo())
                     {
                         errorMsg.Text = "Your have entered an incorrect budget";
                         errorSymbol.Text = "\xE783";

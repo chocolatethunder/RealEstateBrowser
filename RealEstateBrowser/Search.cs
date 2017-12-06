@@ -29,15 +29,15 @@ namespace RealEstateBrowser
             return await Geolocator.RequestAccessAsync();
         }
 
-        public async Task<MapLocationFinderResult> getLocationData ()
+        public async Task<MapLocationFinderResult> getLocationData()
         {
-            Geolocator geoLocator       = new Geolocator { DesiredAccuracy = PositionAccuracy.Default };
-            Geoposition pos             = await geoLocator.GetGeopositionAsync();
-            BasicGeoposition coords     = new BasicGeoposition();
-            coords.Latitude             = pos.Coordinate.Point.Position.Latitude;
-            coords.Longitude            = pos.Coordinate.Point.Position.Longitude;
-            Geopoint coordsToReverse    = new Geopoint(coords);
-            this.locationData           = await MapLocationFinder.FindLocationsAtAsync(coordsToReverse);
+            Geolocator geoLocator = new Geolocator { DesiredAccuracy = PositionAccuracy.Default };
+            Geoposition pos = await geoLocator.GetGeopositionAsync();
+            BasicGeoposition coords = new BasicGeoposition();
+            coords.Latitude = pos.Coordinate.Point.Position.Latitude;
+            coords.Longitude = pos.Coordinate.Point.Position.Longitude;
+            Geopoint coordsToReverse = new Geopoint(coords);
+            this.locationData = await MapLocationFinder.FindLocationsAtAsync(coordsToReverse);
 
             return this.locationData;
         }
@@ -74,7 +74,7 @@ namespace RealEstateBrowser
             {
                 return this.locationData.Locations[0].Point.Position.Longitude;
             }
-            return -1;          
+            return -1;
         }
 
         public double getLat()
@@ -110,5 +110,27 @@ namespace RealEstateBrowser
         {
             return this.bedrooms;
         }
+
+        public void setBudgetFrom(int budget)
+        {
+            this.budgetLow = budget;
+        }
+
+        public int getBudgetFrom()
+        {
+            return this.budgetLow;
+        }
+
+        public void setBudgetTo(int budget)
+        {
+            this.budgetHigh = budget;
+        }
+
+        public int getBudgetTo()
+        {
+            return this.budgetHigh;
+        }
+
     }
+
 }

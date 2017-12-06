@@ -30,13 +30,13 @@ namespace RealEstateBrowser
         private void budgetFrom_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBoxItem typeItem = (ComboBoxItem)budgetFrom.SelectedItem;
-            App.budgetFrom = Int32.Parse(typeItem.Content.ToString().Replace(",","").Replace("$",""));
+            App.searchParam.setBudgetFrom(Int32.Parse(typeItem.Content.ToString().Replace(",","").Replace("$","")));
         }
 
         private void budgetTo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {            
             ComboBoxItem typeItem = (ComboBoxItem)budgetTo.SelectedItem;
-            App.budgetTo = Int32.Parse(typeItem.Content.ToString().Replace(",", "").Replace("$", ""));
+            App.searchParam.setBudgetTo(Int32.Parse(typeItem.Content.ToString().Replace(",", "").Replace("$", "")));
         }
     }
 }
