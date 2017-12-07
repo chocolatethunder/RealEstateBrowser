@@ -47,7 +47,81 @@
         <GridView x:Name="favsGrid" Grid.Row="2" ItemsSource="{x:Bind houses}" IsItemClickEnabled="True" ItemClick="favsGrid_ItemClick">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="data:House">
-                    <StackPanel Padding="10">
+                    <StackPanel>
+                        <StackPanel Padding="10">
+                            <Image 
+                                Width="400" 
+                                Source="{x:Bind iconImg}" 
+                                Stretch="UniformToFill"
+                            />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Padding="10">
+                            <StackPanel Orientation="Horizontal">
+                                <Button 
+                                    Width="50"
+                                    Height="50"
+                                    Padding="0"
+                                    Background="#11BFDB"
+                                >
+                                    <Image                    
+                                        Width="40"
+                                        Height="40"
+                                        Source="Assets/MenuButtonIcons/beds.png"
+                                        Stretch="UniformToFill"
+                                    />
+                                </Button>
+                                <TextBlock
+                                    x:Name="bedrooms"
+                                    Text="{x:Bind beds}"
+                                    FontSize="24"
+                                    FontWeight="SemiBold"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Left"
+                                    Margin="5 0 5 0"
+                                />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="10 0 0 0">
+                                <Button 
+                                    Width="50"
+                                    Height="50"
+                                    Padding="0"
+                                    Background="#11BFDB"
+                                >
+                                    <Image                    
+                                        Width="40"
+                                        Height="40"
+                                        Source="Assets/MenuButtonIcons/baths.png"
+                                        Stretch="UniformToFill"
+                                    />
+                                </Button>
+                                    <TextBlock
+                                    x:Name="bathrooms"
+                                    Text="{x:Bind baths}"
+                                    FontSize="24"
+                                    FontWeight="SemiBold"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Left"
+                                    Margin="5 0 5 0"
+                                />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="10 0 0 0">
+                                <TextBlock
+                                    x:Name="price"
+                                    Text="{x:Bind price}"
+                                    FontSize="24"
+                                    FontWeight="SemiBold"
+                                    VerticalAlignment="Center"
+                                    Margin="20 0 5 0"
+                                    Grid.Row="1"
+                                    Grid.Column="2"
+                                />
+                            </StackPanel>
+
+                        </StackPanel>
+                        
+                    </StackPanel>
+
+                        <!--
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="4*" />
@@ -128,8 +202,8 @@
                             </StackPanel>
                             <TextBlock
                                     x:Name="price"
-                                    Text="$11,000,000"
-                                    FontSize="20"
+                                    Text="{x:Bind price}"
+                                    FontSize="24"
                                     FontWeight="SemiBold"
                                     VerticalAlignment="Center"
                                     HorizontalAlignment="Left"
@@ -138,7 +212,8 @@
                                     Grid.Column="2"
                                 />
                         </Grid>
-                    </StackPanel>
+                        -->
+                    
                     
                 </DataTemplate>                
             </GridView.ItemTemplate>

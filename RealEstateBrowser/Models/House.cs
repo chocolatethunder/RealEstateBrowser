@@ -32,6 +32,9 @@ namespace RealEstateBrowser.Models
         public String baths {
             get { return this._bathrooms.ToString(); }
         }
+        public String price {
+            get { return "$"+this._price.ToString("#,##0"); }
+        }
         public House(
             double latitude,
             double longitude,
@@ -62,7 +65,7 @@ namespace RealEstateBrowser.Models
             this._seller = seller;
             this._tags = tags;
 
-            this._id = new Guid();
+            this._id = Guid.NewGuid();
         }
 
     }
@@ -123,7 +126,7 @@ namespace RealEstateBrowser.Models
                 new String[] { "deadly", "scared", "murder" }
                 )
             );
- /*
+
             listings.Add(new House(
                 51.1782883,
                 -114.1121236,
@@ -411,7 +414,7 @@ namespace RealEstateBrowser.Models
                 "girl-1.png",
                 new String[] { "cosy", "homely", "pets" }
                 )
-            );*/
+            );
 
            return listings;
         }
