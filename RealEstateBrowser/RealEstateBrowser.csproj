@@ -135,6 +135,23 @@
   <ItemGroup>
     <Content Include="Assets\HousePics\house-1-1.jpeg" />
     <Content Include="Assets\HousePics\house-1-2.jpeg" />
+    <Content Include="Assets\HousePics\House1.jpg" />
+    <Content Include="Assets\HousePics\house10.jpg" />
+    <Content Include="Assets\HousePics\house11.jpg" />
+    <Content Include="Assets\HousePics\house12.jpg" />
+    <Content Include="Assets\HousePics\house13.jpg" />
+    <Content Include="Assets\HousePics\house14.jpg" />
+    <Content Include="Assets\HousePics\house15.jpg" />
+    <Content Include="Assets\HousePics\house16.jpg" />
+    <Content Include="Assets\HousePics\house17.jpg" />
+    <Content Include="Assets\HousePics\house2.jpg" />
+    <Content Include="Assets\HousePics\house3.jpg" />
+    <Content Include="Assets\HousePics\house4.jpg" />
+    <Content Include="Assets\HousePics\house5.jpg" />
+    <Content Include="Assets\HousePics\house6.jpg" />
+    <Content Include="Assets\HousePics\house7.jpg" />
+    <Content Include="Assets\HousePics\house8.jpg" />
+    <Content Include="Assets\HousePics\house9.jpg" />
     <Content Include="Assets\icon-high.png" />
     <Content Include="Assets\icon-low.png" />
     <Content Include="Assets\icon-mid.png" />
