@@ -110,10 +110,10 @@ namespace RealEstateBrowser.Models
             listings.Add(new House(
                 51.0699442,
                 -113.9276259,
-                2,
-                2,
+                3,
+                3,
                 1360,
-                2500000,
+                250000,
                 new List<String>() { "house-1-1.jpeg", "house-1-2.jpeg" },
                 "House",
                 new Dictionary<String, Boolean>() { { "Garage", true }, { "Backyard", true }, { "Furnished", true }, { "Fireplace", true }, { "Petfriendly", false } },
