@@ -19,6 +19,7 @@ namespace RealEstateBrowser.Models
         private int budgetLow;
         private string houseType;
         private List<string> previousSearches = new List<string>();
+        Dictionary<String, Boolean> features = new Dictionary<string, bool>() { { "Garage", false }, { "Backyard", false }, { "Furnished", false }, { "Fireplace", false }, { "Petfriendly", false } };
 
         public Search()
         {
@@ -76,10 +77,8 @@ namespace RealEstateBrowser.Models
         {
             List<House> results = new List<House>();
 
-            results = this.getBasicSearchResults();
-
             // Perform filter here
-            foreach (House listing in results)
+            foreach (House listing in this.getBasicSearchResults())
             {               
                 if (this.Between(listing._price, this.budgetLow, this.budgetHigh) || (this.budgetHigh == 1000000 && listing._price >= 1000000))
                 {
@@ -88,8 +87,7 @@ namespace RealEstateBrowser.Models
                         if (listing._propertyType.Equals(this.houseType))
                         {
                             results.Add(listing);
-                        }
-                           
+                        }                           
                     }                            
                 }                
             }
@@ -98,13 +96,43 @@ namespace RealEstateBrowser.Models
 
         public List<House> getAdvancedResults()
         {
-            var results = this.getSearchResults();
+            List<House> results = new List<House>();            
 
-            foreach (House listing in results)
+            foreach (House listing in this.getSearchResults())
             {
-                results.Add(listing);
+                if (this.sameDictionary(this.features, listing._features))
+                {
+                    results.Add(listing);
+                }
             }
             return results;
+        }
+
+        public Boolean sameDictionary (Dictionary<String,Boolean> x, Dictionary<String, Boolean> y)
+        {
+            if (null == y)
+            {
+                return null == x;
+            }                
+            if (null == x)
+            {
+                return false;
+            }                
+            if (object.ReferenceEquals(x, y))
+            {
+                return true;
+            }                
+            if (x.Count != y.Count)
+            {
+                return false;
+            } 
+            foreach (String k in x.Keys)
+            {
+                if (x[k] == true && !x[k].Equals(y[k])) {
+                    return false;
+                }
+            }     
+            return true;
         }
 
         public string getSearchCity()

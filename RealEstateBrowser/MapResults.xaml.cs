@@ -63,7 +63,7 @@ namespace RealEstateBrowser
                 App.user.clearData();
             }
 
-            foreach (House listing in App.searchParam.getSearchResults())
+            foreach (House listing in App.searchParam.getAdvancedResults())
             {
                 var pushPin = new MapIcon();
                 pushPin.Location = new Geopoint(new BasicGeoposition()
