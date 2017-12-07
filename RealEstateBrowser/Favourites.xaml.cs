@@ -34,7 +34,6 @@ namespace RealEstateBrowser
             {
                 favsGrid.Visibility = Visibility.Collapsed;
                 faveStatus.Visibility = Visibility.Visible;
-                faveStatus.Text = "No Favourites found";
             }
         }
 

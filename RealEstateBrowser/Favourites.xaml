@@ -21,20 +21,19 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
         <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
             <RowDefinition Height="2*" />
-            <RowDefinition Height="1.5*" />
-            <RowDefinition Height="18*" />
+            <RowDefinition Height="16*" />
         </Grid.RowDefinitions>
 
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="10*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <StackPanel Grid.Column="1" HorizontalAlignment="Center" Orientation="Horizontal">
-                <TextBlock
+        <StackPanel 
+            Grid.Row="1"
+            Grid.ColumnSpan="3"
+            HorizontalAlignment="Center" 
+            Orientation="Horizontal"
+            VerticalAlignment="Top" 
+        >
+            <TextBlock
                 FontFamily="Segoe MDL2 Assets"
                 FontSize="42"
                 Text="&#xEB51;"
@@ -43,7 +42,7 @@
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"
             />
-                <TextBlock  
+            <TextBlock  
                 Text="Favourites" 
                 FontWeight="SemiBold"
                 FontSize="42"
@@ -51,22 +50,21 @@
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"
             />
-            </StackPanel>
+        </StackPanel>
 
-            <Button
-                Grid.Column="2"
-                FontFamily="Segoe MDL2 Assets"
-                FontSize="22"
-                Content="&#xE8BB;"
-                VerticalAlignment="Top"
-                HorizontalAlignment="Right"
-                Margin="0 10 5 0"
-                Foreground="#000000"
-                Background="Transparent"
-                x:Name="closeFavourites"
-                Click="closeFavourites_Click"
-            />
-        </Grid>
+        <Button
+            Grid.Column="2"
+            FontFamily="Segoe MDL2 Assets"
+            FontSize="22"
+            Content="&#xE8BB;"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Right"
+            Margin="0 10 5 0"
+            Foreground="#000000"
+            Background="Transparent"
+            x:Name="closeFavourites"
+            Click="closeFavourites_Click"
+        />        
 
         <StackPanel Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Padding="0 0 50 0">
             <Button 
@@ -86,7 +84,14 @@
             </Button>
         </StackPanel>
 
-        <GridView x:Name="favsGrid" Grid.Row="2" ItemsSource="{x:Bind houses}" IsItemClickEnabled="True" ItemClick="favsGrid_ItemClick">
+        <GridView 
+            x:Name="favsGrid" 
+            Grid.Row="2" 
+            ItemsSource="{x:Bind houses}" 
+            IsItemClickEnabled="True" 
+            ItemClick="favsGrid_ItemClick"
+            Padding="20"
+        >
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="data:House">
                     <StackPanel>
@@ -167,14 +172,32 @@
             </GridView.ItemTemplate>
         </GridView>
 
-        <TextBlock 
+        <StackPanel
             x:Name="faveStatus"
-            Text=""
             Visibility="Collapsed"
-            Grid.Row="1" 
-        />
+            Grid.Row="3" 
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Orientation="Horizontal"
+        >
+            <TextBlock
+                Text="&#xE783;"
+                FontFamily="Segoe MDL2 Assets"
+                FontSize="40"
+                Foreground="PaleVioletRed"
+                VerticalAlignment="Center"
+                Margin="0 5 10 0"
+            />
+            <TextBlock 
+                Text="Your favourites list is empty"
+                FontSize="36"
+                Foreground="PaleVioletRed"
+                VerticalAlignment="Center"
+            />
+            
+        </StackPanel>
 
-        
+
 
     </Grid>
 </Page>

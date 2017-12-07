@@ -123,7 +123,15 @@ namespace RealEstateBrowser
 
         private void openFavourites_Click(object sender, RoutedEventArgs e)
         {
-            propertyDetails.Navigate(typeof(Favourites));
+            if(App.user.favs.Any())
+            {
+                propertyDetails.Navigate(typeof(Favourites));
+            }
+            else
+            {
+                this.showError("Your favourites list is empty");
+            }
+            
         }
 
         private void openCompare_Click(object sender, RoutedEventArgs e)
@@ -134,7 +142,7 @@ namespace RealEstateBrowser
             }
             else
             {
-                this.showError("Add properties to your compare list first");
+                this.showError("Your compare list is empty");
             }
             
         }
