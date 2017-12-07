@@ -21,12 +21,53 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="1.5*" />
             <RowDefinition Height="18*" />
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="1" HorizontalAlignment="Right" Padding="0 0 50 0">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="10*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="1" HorizontalAlignment="Center" Orientation="Horizontal">
+                <TextBlock
+                FontFamily="Segoe MDL2 Assets"
+                FontSize="40"
+                Text="&#xEB51;"
+                Foreground="#000000"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+            />
+                <TextBlock  
+                Text="Favourites" 
+                FontWeight="SemiBold"
+                FontSize="42"
+                Margin="15 0 0 0"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+            />
+            </StackPanel>
+
+            <Button
+                Grid.Column="2"
+                FontFamily="Segoe MDL2 Assets"
+                FontSize="22"
+                Content="&#xE8BB;"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Right"
+                Margin="0 10 5 0"
+                Foreground="#000000"
+                Background="Transparent"
+                x:Name="closeFavourites"
+                Click="closeFavourites_Click"
+            />
+        </Grid>
+
+        <StackPanel Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Padding="0 0 50 0">
             <Button 
                 Width="50"
                 Height="50"
@@ -119,101 +160,7 @@
 
                         </StackPanel>
                         
-                    </StackPanel>
-
-                        <!--
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="4*" />
-                                <RowDefinition Height="1*" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="2*" />
-                            </Grid.ColumnDefinitions>
-                            <StackPanel Grid.ColumnSpan="3" Margin="0 0 0 10">
-                                <Image 
-                                    Width="400" 
-                                    Source="{x:Bind iconImg}" 
-                                    Stretch="UniformToFill"
-                                />
-                            </StackPanel>
-                        
-                            <StackPanel Grid.Row="1"  Orientation="Horizontal">
-                                <Grid Grid.Column="0">
-                                    <Ellipse 
-                                Width="64" 
-                                Height="64"
-                                Stroke="#000000"
-                                StrokeThickness="5"
-                                Margin="0 0 0 0"
-                                VerticalAlignment="Center"
-                            />
-                                    <Ellipse 
-                                Width="42" 
-                                Height="42"
-                                Margin="0 0 0 0"
-                            >
-                                        <Ellipse.Fill>
-                                            <ImageBrush ImageSource="/Assets/UI/icon-bedroom.png" Stretch="UniformToFill"/>
-                                        </Ellipse.Fill>
-                                    </Ellipse>
-                                </Grid>
-                                <TextBlock
-                                    x:Name="bedrooms"
-                                    Text="{x:Bind beds}"
-                                    FontSize="20"
-                                    FontWeight="SemiBold"
-                                    VerticalAlignment="Center"
-                                    HorizontalAlignment="Left"
-                                    Margin="5 0 0 0"
-                                />
-                            </StackPanel>
-                            <StackPanel Grid.Row="1" Orientation="Horizontal" Grid.Column="1">
-                                <Grid>
-                                    <Ellipse 
-                                    Width="64" 
-                                    Height="64"
-                                    Stroke="#000000"
-                                    StrokeThickness="5"
-                                    Margin="0 0 0 0"
-                                    VerticalAlignment="Center"
-                                />
-                                    <Ellipse 
-                                    Width="42" 
-                                    Height="42"
-                                    Margin="0 0 0 0"
-                                >
-                                        <Ellipse.Fill>
-                                            <ImageBrush ImageSource="/Assets/UI/icon-bathroom.png" Stretch="UniformToFill"/>
-                                        </Ellipse.Fill>
-                                    </Ellipse>
-                                </Grid>
-                                <TextBlock
-                                    x:Name="bathrooms"
-                                    Text="{x:Bind baths}"
-                                    FontSize="20"
-                                    FontWeight="SemiBold"
-                                    VerticalAlignment="Center"
-                                    HorizontalAlignment="Left"
-                                    Margin="5 0 0 0"
-                                />  
-                            </StackPanel>
-                            <TextBlock
-                                    x:Name="price"
-                                    Text="{x:Bind price}"
-                                    FontSize="24"
-                                    FontWeight="SemiBold"
-                                    VerticalAlignment="Center"
-                                    HorizontalAlignment="Left"
-                                    Margin="5 0 0 0"
-                                    Grid.Row="1"
-                                    Grid.Column="2"
-                                />
-                        </Grid>
-                        -->
-                    
+                    </StackPanel>                   
                     
                 </DataTemplate>                
             </GridView.ItemTemplate>
@@ -226,26 +173,7 @@
             Grid.Row="1" 
         />
 
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="10*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Button
-                Grid.Column="2"
-                FontFamily="Segoe MDL2 Assets"
-                FontSize="22"
-                Content="&#xE8BB;"
-                VerticalAlignment="Top"
-                HorizontalAlignment="Right"
-                Margin="0 10 5 0"
-                Foreground="#000000"
-                Background="Transparent"
-                x:Name="closeFavourites"
-                Click="closeFavourites_Click"
-            />
-        </Grid>
+        
 
     </Grid>
 </Page>
