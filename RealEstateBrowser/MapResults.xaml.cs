@@ -126,6 +126,19 @@ namespace RealEstateBrowser
             propertyDetails.Navigate(typeof(Favourites));
         }
 
+        private void openCompare_Click(object sender, RoutedEventArgs e)
+        {
+            if(App.user.compare.Any())
+            {
+                propertyDetails.Navigate(typeof(Compare));
+            }
+            else
+            {
+                this.showError("Add properties to your compare list first");
+            }
+            
+        }
+
         private void propertyDetails_LostFocus(object sender, RoutedEventArgs e)
         {
             propertyDetails.Navigate(typeof(ClearPage));
@@ -238,5 +251,7 @@ namespace RealEstateBrowser
             }
             this.setPushPins(true);
         }
+
+        
     }
 }

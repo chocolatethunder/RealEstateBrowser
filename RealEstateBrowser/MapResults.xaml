@@ -241,6 +241,7 @@
 
             <Button 
                 x:Name="openCompare"
+                Click="openCompare_Click"
                 Width="50"
                 Height="50"
                 Margin="2 0 0 0"

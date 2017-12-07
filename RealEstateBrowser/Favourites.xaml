@@ -36,9 +36,10 @@
             <StackPanel Grid.Column="1" HorizontalAlignment="Center" Orientation="Horizontal">
                 <TextBlock
                 FontFamily="Segoe MDL2 Assets"
-                FontSize="40"
+                FontSize="42"
                 Text="&#xEB51;"
                 Foreground="#000000"
+                Margin="0 5 0 0"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"
             />
