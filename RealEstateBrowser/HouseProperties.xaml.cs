@@ -70,11 +70,77 @@ namespace RealEstateBrowser
                 }
             }
 
+            if (App.user.compare.ContainsKey(App.currentDetail._id))
+            {
+                compareButt.Background = new SolidColorBrush(Color.FromArgb(255, 17, 191, 219)); 
+                compareButtTxt.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
+            }
+
+            if (App.user.favs.ContainsKey(App.currentDetail._id))
+            {
+                heart.Text = "\xEB52";
+            }
+
         }
 
         private void closeProperty_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(ClearPage));
+        }
+
+        private void addToFavs_Click(object sender, RoutedEventArgs e)
+        {
+            if (App.user.favs.ContainsKey(App.currentDetail._id))
+            {
+                heart.Text = "\xEB51";
+                App.user.favs.Remove(App.currentDetail._id);
+            }
+            else
+            {
+                if (App.user.addToFavs(App.currentDetail))
+                {
+                    heart.Text = "\xEB52";
+                }                
+            }
+        }
+
+        private void addToCompare_Click(object sender, RoutedEventArgs e)
+        {
+            if (App.user.compare.Count() >= 3)
+            {
+                showError("You cannot add more than 3 item to compare list");
+            }
+            else if (App.user.compare.ContainsKey(App.currentDetail._id))
+            {
+                compareButt.Background = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
+                compareButtTxt.Foreground = new SolidColorBrush(Color.FromArgb(255, 17, 191, 219));
+                App.user.compare.Remove(App.currentDetail._id);
+            }
+            else
+            {
+                if (App.user.addToCompare(App.currentDetail))
+                {
+                    compareButt.Background = new SolidColorBrush(Color.FromArgb(255, 17, 191, 219));
+                    compareButtTxt.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
+                }                
+            }
+        }
+
+        private async void showError(String msg)
+        {
+            ContentDialog dialog = new ContentDialog()
+            {
+                Title = "Error",
+                MaxWidth = this.ActualWidth,
+                PrimaryButtonText = "OK",
+                Content = new TextBlock
+                {
+                    Text = msg,
+                    FontSize = 18
+                }
+            };
+            await dialog.ShowAsync();
+
         }
 
     }

@@ -27,6 +27,7 @@ namespace RealEstateBrowser
 
         internal static Search searchParam = new Search();
         internal static List<House> listings = new List<House>();
+        internal static User user = new User();
         internal static House currentDetail;
 
         /// <summary>

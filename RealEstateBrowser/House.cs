@@ -21,7 +21,7 @@ namespace RealEstateBrowser
         public String _title { get; }
         public String _description { get; }
         public String _seller { get; }
-        public String _id { get; }
+        public Guid _id { get; }
         public String[] _tags { get; }
         public House(
             double latitude,
@@ -53,8 +53,7 @@ namespace RealEstateBrowser
             this._seller = seller;
             this._tags = tags;
 
-            Guid id = new Guid();
-            this._id = id.ToString();
+            this._id = new Guid();
         }
 
     }

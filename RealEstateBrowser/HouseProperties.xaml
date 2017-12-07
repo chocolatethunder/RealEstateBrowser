@@ -160,7 +160,7 @@
                     VerticalAlignment="Top" 
                     Margin="0 5 0 0"
                     Foreground="#FFFFFF"
-                
+                    Click="addToFavs_Click"                
                 >
                     <StackPanel>
                         <Border
@@ -172,6 +172,7 @@
                                 Height="60"
                             >
                             <TextBlock 
+                                x:Name="heart"
                                 FontFamily="Segoe MDL2 Assets"
                                 FontSize="34"
                                 Foreground="#11BFDB"
@@ -192,9 +193,11 @@
                     Foreground="#FFFFFF"
                     Grid.Row="1"
                     Grid.Column="2"
+                    Click="addToCompare_Click"
                 >
                     <StackPanel>
                         <Border
+                            x:Name="compareButt"
                             BorderBrush="#11BFDB"
                             BorderThickness="3"
                             CornerRadius="60"
@@ -203,6 +206,7 @@
                             Height="60"
                         >
                             <TextBlock 
+                                x:Name="compareButtTxt"
                                 FontFamily="Segoe MDL2 Assets"
                                 FontSize="34"
                                 Foreground="#11BFDB"

@@ -35,13 +35,16 @@ namespace RealEstateBrowser
             BasicGeoposition location = new BasicGeoposition();
             location.Latitude = App.searchParam.getLat();
             location.Longitude = App.searchParam.getLon();
-
             MapControl1.Center = new Geopoint(location);
-
             this.setPushPins();
         }
 
-        private void setPushPins(Boolean reset = false)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+        }
+
+        public async void setPushPins(Boolean reset = false)
         {
             // Setup all the push pins
 
@@ -55,6 +58,7 @@ namespace RealEstateBrowser
             if (reset)
             {
                 MapControl1.MapElements.Clear();
+                App.user.clearData();
             }
 
             foreach (House listing in App.searchParam.getSearchResults())
@@ -86,6 +90,28 @@ namespace RealEstateBrowser
 
                 MapControl1.MapElements.Add(pushPin);
             }
+
+            if (!MapControl1.MapElements.Any())
+            {
+                this.showError("We could not find any results.");
+            }
+        }
+
+        private async void showError(String msg)
+        {
+            ContentDialog dialog = new ContentDialog()
+            {
+                Title = "Error",
+                MaxWidth = this.ActualWidth,
+                PrimaryButtonText = "OK",
+                Content = new TextBlock
+                {
+                    Text = msg,
+                    FontSize = 18
+                }
+            };
+            await dialog.ShowAsync();
+
         }
 
         private void backHome_Click(object sender, RoutedEventArgs e)

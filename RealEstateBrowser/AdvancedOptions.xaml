@@ -408,6 +408,7 @@
         />
         <StackPanel Grid.Column="2" Grid.Row="1" Orientation="Horizontal">
             <ComboBox
+                x:Name="bedMin"
                 VerticalAlignment="Center"
                 FontSize="26"
                 Width="100"
@@ -425,6 +426,7 @@
                 Margin="15 0 15 5"                
             />
             <ComboBox
+                x:Name="bedMax"
                 VerticalAlignment="Center"
                 FontSize="26"
                 Width="100"
@@ -445,6 +447,7 @@
         />
         <StackPanel Grid.Column="2" Grid.Row="2" Orientation="Horizontal">
             <ComboBox
+                x:Name="bathMin"
                 VerticalAlignment="Center"
                 FontSize="26"
                 Width="100"
@@ -461,6 +464,7 @@
                 Margin="15 0 15 5"                
             />
             <ComboBox
+                x:Name="bathMax"
                 VerticalAlignment="Center"
                 FontSize="26"
                 Width="100"
@@ -481,6 +485,7 @@
         />
         <StackPanel Grid.Column="2" Grid.Row="3" Orientation="Horizontal">
             <ComboBox
+                x:Name="propType"
                 VerticalAlignment="Center"
                 Width="400"
                 FontSize="26"
@@ -488,8 +493,7 @@
                 <ComboBoxItem IsSelected="True">House</ComboBoxItem>
                 <ComboBoxItem>Condo</ComboBoxItem>
                 <ComboBoxItem>Apartment</ComboBoxItem>
-                <ComboBoxItem>TownHouse</ComboBoxItem>
-                <ComboBoxItem>Shed</ComboBoxItem>
+                <ComboBoxItem>Townhouse</ComboBoxItem>
             </ComboBox>
         </StackPanel>
 
@@ -502,6 +506,7 @@
         />
         <StackPanel Grid.Column="2" Grid.Row="4" Orientation="Horizontal">
             <ComboBox
+                x:Name="budgetFrom"
                 VerticalAlignment="Center"
                 FontSize="26"
                 Width="175"
@@ -525,6 +530,7 @@
                 Margin="13 0 12 5"                
             />
             <ComboBox
+                x:Name="budgetTo"
                 VerticalAlignment="Center"
                 FontSize="26"
                 Width="175"
@@ -637,7 +643,7 @@
         </StackPanel>
 
         <Button 
-            x:Name="nextStep"
+            x:Name="refineSearch"
             Content="REFINE"
             FontSize="26"
             Width="130" 
@@ -648,7 +654,7 @@
             Grid.Row="9"
             HorizontalAlignment="Right"
             Margin="0 0 50 0"
-            Click="nextStep_Click"
+            Click="refineSearch_Click"
         />
 
 

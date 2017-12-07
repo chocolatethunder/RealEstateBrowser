@@ -125,6 +125,7 @@
       <DependentUpon>Question3.xaml</DependentUpon>
     </Compile>
     <Compile Include="Search.cs" />
+    <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
