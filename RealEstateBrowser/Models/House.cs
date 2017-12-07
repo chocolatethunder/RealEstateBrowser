@@ -106,12 +106,12 @@ namespace RealEstateBrowser.Models
                 new String[] { "lovely", "furnished", "closttotransit" }
                 )
             );
-
+           
             listings.Add(new House(
                 51.0699442,
                 -113.9276259,
-                3,
-                3,
+                2,
+                2,
                 1360,
                 250000,
                 new List<String>() { "house-1-1.jpeg", "house-1-2.jpeg" },
@@ -123,7 +123,7 @@ namespace RealEstateBrowser.Models
                 new String[] { "deadly", "scared", "murder" }
                 )
             );
-
+ /*
             listings.Add(new House(
                 51.1782883,
                 -114.1121236,
@@ -411,7 +411,7 @@ namespace RealEstateBrowser.Models
                 "girl-1.png",
                 new String[] { "cosy", "homely", "pets" }
                 )
-            );
+            );*/
 
            return listings;
         }
