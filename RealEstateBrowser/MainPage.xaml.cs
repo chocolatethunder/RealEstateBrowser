@@ -43,7 +43,17 @@ namespace RealEstateBrowser
 
                 if (result.Status == MapLocationFinderStatus.Success)
                 {
-                    this.Frame.Navigate(typeof(intro));
+                    if (!App.searchParam.getBasicSearchResults().Any())
+                    {
+                        errorSymbol.Text = "\xE783";
+                        errorMsg.Text = "We did not find any listings.";
+                        searchingWait.IsActive = false;
+                    }
+                    else
+                    {
+                        this.Frame.Navigate(typeof(intro));
+                    }
+                    
                 }
                 else
                 {
@@ -100,10 +110,17 @@ namespace RealEstateBrowser
 
                     if(result.Status == MapLocationFinderStatus.Success)
                     {
-                        location.Text = result.Locations[0].Address.Town;
-                        errorSymbol.Text = "";
-                        errorMsg.Text = "";
-                        this.Frame.Navigate(typeof(intro));
+                        if (!App.searchParam.getBasicSearchResults().Any())
+                        {
+                            errorSymbol.Text = "\xE783";
+                            errorMsg.Text = "We did not find any listings.";
+                            searchingWait.IsActive = false;
+                        } 
+                        else
+                        {
+                            this.Frame.Navigate(typeof(intro));
+                        }
+                        
                     }
                     else
                     {

@@ -58,30 +58,51 @@ namespace RealEstateBrowser.Models
             return number >= min && number <= max;
         }
 
-        public List<House> getSearchResults()
+        public List<House> getBasicSearchResults()
         {
             List<House> results = new List<House>();
 
-            // Perform filter here
             foreach (House listing in App.listings)
             {
                 if (this.Between(listing._latitude, this.locationData.Locations[0].Point.Position.Latitude - 0.5, this.locationData.Locations[0].Point.Position.Latitude + 0.5))
                 {
-                    if (this.Between(listing._price, this.budgetLow, this.budgetHigh) || (this.budgetHigh == 1000000 && listing._price >= 1000000))
-                    {
-                        if (this.Between(listing._bathrooms, this.bathroomsLow, this.bathroomsHigh) && this.Between(listing._bedrooms, this.bedroomsLow, this.bedroomsHigh))
-                        {
-                            if (listing._propertyType.Equals(this.houseType))
-                            {
-                                results.Add(listing);
-                            }
-                           
-                        }
-                            
-                    }
-
+                    results.Add(listing);
                 }
-                
+            }
+            return results;
+        }
+
+        public List<House> getSearchResults()
+        {
+            List<House> results = new List<House>();
+
+            results = this.getBasicSearchResults();
+
+            // Perform filter here
+            foreach (House listing in results)
+            {               
+                if (this.Between(listing._price, this.budgetLow, this.budgetHigh) || (this.budgetHigh == 1000000 && listing._price >= 1000000))
+                {
+                    if (this.Between(listing._bathrooms, this.bathroomsLow, this.bathroomsHigh) && this.Between(listing._bedrooms, this.bedroomsLow, this.bedroomsHigh))
+                    {
+                        if (listing._propertyType.Equals(this.houseType))
+                        {
+                            results.Add(listing);
+                        }
+                           
+                    }                            
+                }                
+            }
+            return results;
+        }
+
+        public List<House> getAdvancedResults()
+        {
+            var results = this.getSearchResults();
+
+            foreach (House listing in results)
+            {
+                results.Add(listing);
             }
             return results;
         }
