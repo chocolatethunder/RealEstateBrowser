@@ -20,10 +20,12 @@ namespace RealEstateBrowser.Models
         private string houseType;
         private List<string> previousSearches = new List<string>();
         Dictionary<String, Boolean> features = new Dictionary<string, bool>() { { "Garage", false }, { "Backyard", false }, { "Furnished", false }, { "Fireplace", false }, { "Petfriendly", false } };
+        private float sqftFrom = 0;
+        private float sqftTo = 10000;
 
         public Search()
         {
-            // Get auto location
+           
         }
 
         public async Task<GeolocationAccessStatus> getGPSAccessStatus()
@@ -100,7 +102,7 @@ namespace RealEstateBrowser.Models
 
             foreach (House listing in this.getSearchResults())
             {
-                if (this.sameDictionary(this.features, listing._features))
+                if (this.sameDictionary(this.features, listing._features) && this.Between(listing._area, this.sqftFrom, this.sqftTo))
                 {
                     results.Add(listing);
                 }
@@ -236,6 +238,29 @@ namespace RealEstateBrowser.Models
         {
             return this.budgetHigh;
         }
+
+        public void setSquareFtLow(float area)
+        {
+            this.sqftFrom = area;
+        }
+        public void setSquareFtHigh(float area)
+        {
+            this.sqftTo = area;
+        }
+        public float getSquareFtLow()
+        {
+            return this.sqftFrom;
+        }
+        public float getSquareFtHigh()
+        {
+            return this.sqftTo;
+        }
+
+        public void feature (String feat, Boolean value)
+        {
+            this.features[feat] = value;
+        }
+            
 
     }
 
