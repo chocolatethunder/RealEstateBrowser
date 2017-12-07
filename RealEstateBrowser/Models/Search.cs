@@ -18,10 +18,11 @@ namespace RealEstateBrowser.Models
         private int budgetHigh;
         private int budgetLow;
         private string houseType;
-        private List<string> previousSearches = new List<string>();
+        private List<String> previousSearches = new List<String>();
         Dictionary<String, Boolean> features = new Dictionary<string, bool>() { { "Garage", false }, { "Backyard", false }, { "Furnished", false }, { "Fireplace", false }, { "Petfriendly", false } };
         private float sqftFrom = 0;
         private float sqftTo = 10000;
+        private List<String> searchtags = new List<string>();
 
         public Search()
         {
@@ -104,7 +105,21 @@ namespace RealEstateBrowser.Models
             {
                 if (this.sameDictionary(this.features, listing._features) && this.Between(listing._area, this.sqftFrom, this.sqftTo))
                 {
-                    results.Add(listing);
+                    if (!this.searchtags.Any())
+                    {
+                        results.Add(listing);
+                        
+                    } else
+                    {
+                        foreach (String tag in this.searchtags)
+                        {
+                            if (listing._tags.Contains(tag))
+                            {
+                                results.Add(listing);
+                            }
+                        }
+                    }
+                    
                 }
             }
             return results;
@@ -260,8 +275,19 @@ namespace RealEstateBrowser.Models
         {
             this.features[feat] = value;
         }
-            
 
+        public void setSearchTags(List<String> tags)
+        {
+            if (tags != null && tags.Count() > 0)
+            {
+                this.searchtags = tags;
+            }
+            else if (tags == null)
+            {
+                this.searchtags.Clear();
+            }
+
+        }
     }
 
 }

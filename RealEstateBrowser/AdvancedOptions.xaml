@@ -601,6 +601,7 @@
         />
         <StackPanel Grid.RowSpan="4" Grid.Column="4" Grid.Row="2">
             <TextBox
+                x:Name="searchTags"
                 Height="222"
                 Width="435"
                 HorizontalAlignment="Left"

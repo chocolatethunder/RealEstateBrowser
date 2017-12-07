@@ -64,7 +64,6 @@ namespace RealEstateBrowser.Models
             this._description = description;
             this._seller = seller;
             this._tags = tags;
-
             this._id = Guid.NewGuid();
         }
 

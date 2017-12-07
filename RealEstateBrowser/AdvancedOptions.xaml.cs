@@ -229,6 +229,19 @@ namespace RealEstateBrowser
                 App.searchParam.feature("Petfriendly", false);
             }
 
+            /***********************************************/
+
+            if (!string.IsNullOrWhiteSpace(searchTags.Text))
+            {
+                var text = searchTags.Text;
+                List<String> tokens = text.Replace("#", " ").Replace(",", " ").Split(' ').ToList();
+                App.searchParam.setSearchTags(tokens);
+            }
+            else
+            {
+                App.searchParam.setSearchTags(null);
+            }
+
             // Only process if no errors
             if (!error)
             {
