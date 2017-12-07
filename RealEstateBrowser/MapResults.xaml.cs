@@ -18,6 +18,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using RealEstateBrowser.Models;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -31,12 +32,13 @@ namespace RealEstateBrowser
         public MapResults()
         {
             this.InitializeComponent();
-
             BasicGeoposition location = new BasicGeoposition();
             location.Latitude = App.searchParam.getLat();
             location.Longitude = App.searchParam.getLon();
             MapControl1.Center = new Geopoint(location);
             this.setPushPins();
+
+            App.mapResultsData = this;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -121,7 +123,7 @@ namespace RealEstateBrowser
 
         private void openFavourites_Click(object sender, RoutedEventArgs e)
         {
-            
+            propertyDetails.Navigate(typeof(Favourites));
         }
 
         private void propertyDetails_LostFocus(object sender, RoutedEventArgs e)

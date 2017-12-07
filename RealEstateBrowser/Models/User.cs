@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RealEstateBrowser
+namespace RealEstateBrowser.Models
 {
     class User
     {
@@ -35,6 +35,16 @@ namespace RealEstateBrowser
                 return true;
             }
             return false;
+        }
+
+        public List<House> getFavs()
+        {
+            var result = new List<House>();
+            foreach (KeyValuePair<Guid, House> data in favs)
+            {
+                result.Add(data.Value);
+            }
+            return result;
         }
 
         public void clearData()

@@ -22,6 +22,7 @@ namespace RealEstateBrowser
     /// </summary>
     public sealed partial class AdvancedOptions : Page
     {
+        
         public AdvancedOptions()
         {
             this.InitializeComponent();
@@ -107,6 +108,9 @@ namespace RealEstateBrowser
             }
             
             this.Frame.Navigate(typeof(ClearPage));
-        }
+
+            App.mapResultsData.setPushPins(true);
+
+        }        
     }
 }

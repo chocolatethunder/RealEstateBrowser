@@ -555,11 +555,15 @@
             FontSize="26"
             VerticalAlignment="Center"
         />
-        <StackPanel Grid.Column="2" Grid.Row="5" Orientation="Horizontal">
+        <StackPanel 
+            Grid.Column="2" 
+            Grid.Row="5" 
+            Orientation="Horizontal">
             <TextBox
                 Width="330"
                 Height="45"
-                FontSize="26" Margin="0,6,0,5"
+                FontSize="26" 
+                Margin="0,6,0,5"
             />
             <TextBlock 
                 Text="sq ft."

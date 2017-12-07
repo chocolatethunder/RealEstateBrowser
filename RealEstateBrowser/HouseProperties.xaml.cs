@@ -85,7 +85,14 @@ namespace RealEstateBrowser
 
         private void closeProperty_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(ClearPage));
+            if (this.Frame.CanGoBack)
+            {
+                this.Frame.GoBack();
+            }
+            else
+            {
+                this.Frame.Navigate(typeof(ClearPage));
+            }            
         }
 
         private void addToFavs_Click(object sender, RoutedEventArgs e)

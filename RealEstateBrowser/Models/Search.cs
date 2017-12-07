@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Windows.Devices.Geolocation;
 using Windows.Services.Maps;
 
-namespace RealEstateBrowser
+namespace RealEstateBrowser.Models
 {
     class Search
     {
