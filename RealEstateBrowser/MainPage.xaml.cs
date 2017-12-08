@@ -33,6 +33,15 @@ namespace RealEstateBrowser
             location.AddHandler(AutoSuggestBox.KeyDownEvent, new KeyEventHandler(location_KeyDown), true);
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            if (App.searchParam.complete)
+            {
+                prevSearch.Visibility = Visibility.Visible;
+            }
+        }
+
         private async void searchLocation_Click(object sender, RoutedEventArgs e)
         {
             if (!location.Text.Equals(null) && !location.Text.Equals(""))
@@ -142,6 +151,11 @@ namespace RealEstateBrowser
             }
 
             this.reset();
+        }
+
+        private void prevSearch_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MapResults));
         }
     }
 }

@@ -117,9 +117,25 @@
                     RelativePanel.Below="errorBar"
                 />
 
-            </RelativePanel>
+                <Button 
+                    x:Name="prevSearch"
+                    Click="prevSearch_Click"
+                    Visibility="Collapsed"
+                    Width="225" 
+                    Height="38"
+                    FontSize="18"
+                    Foreground="#FFFFFF"
+                    Content="USE PREVIOUS SEARCH"
+                    RelativePanel.Below="searchingWait"
+                    RelativePanel.AlignHorizontalCenterWith="errorBar"
+                    Margin="0 20 0 0"
+                    Background="#11BFDB"
+                />
+
+            </RelativePanel>           
 
         </StackPanel>
+        
         
     </Grid>
 </Page>

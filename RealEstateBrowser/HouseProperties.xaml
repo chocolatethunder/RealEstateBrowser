@@ -512,19 +512,21 @@
             </Popup.ChildTransitions>
             <Grid Width="480"  Background="{ThemeResource FlyoutBackgroundThemeBrush}" >
                 <StackPanel>
-                    <TextBlock HorizontalAlignment="Center" Text="Please Enter Your Email" FontSize="26" Margin="15"/>
+                    <TextBlock HorizontalAlignment="Center" Text="Please enter your email" FontSize="26" Margin="15 15 15 5"/>
                     <TextBox Width="300" Margin="10" FontSize="26"/>
+                    <TextBlock HorizontalAlignment="Center" Text="A short message" FontSize="26" Margin="15 15 15 5"/>
+                    <TextBox Width="300" Height="300" FontSize="26" TextWrapping="Wrap" Margin="15"/>
                     <Button 
                         x:Name="sendButt"
                         Click="sendButt_Click"
-                        Content="SEND"
+                        Content="SEND TO REALTOR"
                         Foreground="#FFFFFF"
-                        Width="140" 
+                        Width="300" 
                         Height="50" 
                         Background="#11BFDB"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
-                        Margin="10 10 10 20"
+                        Margin="10 10 10 40"
                         FontSize="26"
                     />
                 </StackPanel>

@@ -24,9 +24,11 @@ namespace RealEstateBrowser.Models
         private float sqftTo = 10000;
         private List<String> searchtags = new List<string>();
 
+        public Boolean complete { get; set; }
+
         public Search()
         {
-           
+            this.complete = false;
         }
 
         public async Task<GeolocationAccessStatus> getGPSAccessStatus()
@@ -288,6 +290,7 @@ namespace RealEstateBrowser.Models
             }
 
         }
+
     }
 
 }

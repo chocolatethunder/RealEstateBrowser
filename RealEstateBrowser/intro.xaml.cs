@@ -107,6 +107,7 @@ namespace RealEstateBrowser
                             errorSymbol.Text = "\xE783";
                         } else
                         {
+                            App.searchParam.complete = true;
                             this.Frame.Navigate(typeof(MapResults));
                         }
                         

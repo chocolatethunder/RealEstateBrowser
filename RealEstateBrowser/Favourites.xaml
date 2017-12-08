@@ -224,7 +224,7 @@
                         Background="#11BFDB"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
-                        Margin="10 10 10 20"
+                        Margin="10 10 10 40"
                         FontSize="26"
                     />
                 </StackPanel>
