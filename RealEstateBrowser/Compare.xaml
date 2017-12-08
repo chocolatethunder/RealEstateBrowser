@@ -74,7 +74,7 @@
             x:Name="c1_panel"
             Grid.Column="0"
             Grid.Row="2"
-            Visibility="Collapsed"
+            Visibility="Visible"
             Margin="20 0 10 0"
         >
             <StackPanel>

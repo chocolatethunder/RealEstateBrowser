@@ -97,7 +97,7 @@
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="data:House">
                     <StackPanel>
-                        <StackPanel Padding="10">
+                        <StackPanel Margin="10">
                             <Image 
                                 Width="400" 
                                 Source="{x:Bind iconImg}" 
@@ -105,6 +105,45 @@
                             />
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Padding="10">
+                            <StackPanel>
+                                <Grid 
+                                    HorizontalAlignment="Right" 
+                                    Padding="0 0 10 10"
+                                >
+                                    <Ellipse 
+                                        Width="56" 
+                                        Height="56"
+                                        Stroke="#000000"
+                                        StrokeThickness="3"
+                                        Margin="0 0 0 0"
+                                        VerticalAlignment="Center"
+                                    />
+                                    <Ellipse 
+                                        Width="44" 
+                                        Height="44"
+                                        Margin="0 0 0 0"
+                                    >
+                                        <ToolTipService.ToolTip>
+                                            <TextBlock Text="Bedrooms" />
+                                        </ToolTipService.ToolTip>
+                                        <Ellipse.Fill>
+                                            <ImageBrush ImageSource="/Assets/UI/icon-bedroom.png" Stretch="UniformToFill"/>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock
+                                    x:Name="bedrooms"
+                                    Text="{x:Bind beds}"
+                                    FontSize="24"
+                                    FontWeight="SemiBold"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Left"
+                                    Margin="5 0 10 7"
+                                />
+                            </StackPanel>
+                            <!--
                             <StackPanel Orientation="Horizontal">
                                 <Button 
                                     Width="50"
@@ -129,6 +168,46 @@
                                     Margin="5 0 5 0"
                                 />
                             </StackPanel>
+                            -->
+                            <StackPanel>
+                                <Grid 
+                                    HorizontalAlignment="Right" 
+                                    Padding="0 0 10 10"
+                                >
+                                    <Ellipse 
+                                        Width="56" 
+                                        Height="56"
+                                        Stroke="#000000"
+                                        StrokeThickness="3"
+                                        Margin="0 0 0 0"
+                                        VerticalAlignment="Center"
+                                    />
+                                    <Ellipse 
+                                        Width="44" 
+                                        Height="44"
+                                        Margin="0 0 0 0"
+                                    >
+                                        <ToolTipService.ToolTip>
+                                            <TextBlock Text="Bathrooms" />
+                                        </ToolTipService.ToolTip>
+                                        <Ellipse.Fill>
+                                            <ImageBrush ImageSource="/Assets/UI/icon-bathroom.png" Stretch="UniformToFill"/>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock
+                                    x:Name="bathrooms"
+                                    Text="{x:Bind baths}"
+                                    FontSize="24"
+                                    FontWeight="SemiBold"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Left"
+                                    Margin="5 0 5 7"
+                                />
+                            </StackPanel>
+                            <!--
                             <StackPanel Orientation="Horizontal" Margin="10 0 0 0">
                                 <Button 
                                     Width="50"
@@ -153,19 +232,21 @@
                                     Margin="5 0 5 0"
                                 />
                             </StackPanel>
+                            -->
                             <StackPanel Orientation="Horizontal" Margin="10 0 0 0">
                                 <TextBlock
                                     x:Name="price"
                                     Text="{x:Bind price}"
-                                    FontSize="24"
-                                    FontWeight="SemiBold"
+                                    FontSize="28"
+                                    FontWeight="Bold"
                                     VerticalAlignment="Center"
-                                    Margin="20 0 5 0"
+                                    HorizontalAlignment="Right"
+                                    Margin="20 0 5 10"
                                     Grid.Row="1"
                                     Grid.Column="2"
                                 />
                             </StackPanel>
-
+                            
                         </StackPanel>
                         
                     </StackPanel>                   

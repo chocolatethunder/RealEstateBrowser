@@ -23,7 +23,9 @@
             <RowDefinition Height="2*" />
         </Grid.RowDefinitions>
 
-        <Image Grid.Row="0"
+        <Image
+            x:Name="imgSlides"
+            Grid.Row="0"
             Source="Assets/HousePics/house-1-1.jpeg"
             Stretch="UniformToFill"
             VerticalAlignment="Center"
