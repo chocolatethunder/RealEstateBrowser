@@ -60,7 +60,7 @@ namespace RealEstateBrowser
             if (reset)
             {
                 MapControl1.MapElements.Clear();
-                App.user.clearData();
+                //App.user.clearData();
             }
 
             foreach (House listing in App.searchParam.getAdvancedResults())
