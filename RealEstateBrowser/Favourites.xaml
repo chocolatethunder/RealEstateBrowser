@@ -73,6 +73,8 @@
                 Margin="2 0 0 0"
                 Background="#FFFFFF"
                 BorderBrush="#11BFDB"
+                x:Name="shareFavs"
+                Click="shareFavs_Click"
             >
                 <TextBlock
                     FontFamily="Segoe MDL2 Assets"
@@ -197,7 +199,37 @@
             
         </StackPanel>
 
-
+        <Popup x:Name="ppup" IsOpen="False" IsLightDismissEnabled="True"  
+     Width="480" HorizontalAlignment="Center">
+            <Popup.ChildTransitions>
+                <TransitionCollection>
+                    <!--<EdgeUIThemeTransition Edge="Left" />-->
+                    <PaneThemeTransition Edge="Top" />
+                </TransitionCollection>
+            </Popup.ChildTransitions>
+            <Grid Width="480" Background="#F3F3F3" >
+                <StackPanel>
+                    <TextBlock HorizontalAlignment="Center" Text="Please enter emails to share with" FontSize="26" Margin="15"/>
+                    <TextBox Width="300" Margin="10" FontSize="26"/>
+                    <TextBox Width="300" Margin="10" FontSize="26"/>
+                    <TextBox Width="300" Margin="10" FontSize="26"/>
+                    <TextBox Width="300" Margin="10" FontSize="26"/>
+                    <Button 
+                        x:Name="shareButt"
+                        Click="shareButt_Click"
+                        Content="SHARE"
+                        Foreground="#FFFFFF"
+                        Width="140" 
+                        Height="50" 
+                        Background="#11BFDB"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Margin="10 10 10 20"
+                        FontSize="26"
+                    />
+                </StackPanel>
+            </Grid>
+        </Popup>
 
     </Grid>
 </Page>

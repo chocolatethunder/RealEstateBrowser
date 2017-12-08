@@ -119,6 +119,7 @@
 
             <Button 
                 x:Name="propInterested"
+                Click="propInterested_Click"
                 Width="140" 
                 Height="50" 
                 Background="#11BFDB"
@@ -496,13 +497,38 @@
                         <ImageBrush ImageSource="/Assets/UI/icon-pets.png" Stretch="UniformToFill"/>
                     </Ellipse.Fill>
                 </Ellipse>
-
-
-
-
+                
             </Grid>
 
         </Grid>
 
+        <Popup x:Name="ppup" IsOpen="False" IsLightDismissEnabled="True"  
+     Width="480" HorizontalAlignment="Center">
+            <Popup.ChildTransitions>
+                <TransitionCollection>
+                    <!--<EdgeUIThemeTransition Edge="Left" />-->
+                    <PaneThemeTransition Edge="Top" />
+                </TransitionCollection>
+            </Popup.ChildTransitions>
+            <Grid Width="480"  Background="{ThemeResource FlyoutBackgroundThemeBrush}" >
+                <StackPanel>
+                    <TextBlock HorizontalAlignment="Center" Text="Please Enter Your Email" FontSize="26" Margin="15"/>
+                    <TextBox Width="300" Margin="10" FontSize="26"/>
+                    <Button 
+                        x:Name="sendButt"
+                        Click="sendButt_Click"
+                        Content="SEND"
+                        Foreground="#FFFFFF"
+                        Width="140" 
+                        Height="50" 
+                        Background="#11BFDB"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Margin="10 10 10 20"
+                        FontSize="26"
+                    />
+                </StackPanel>
+            </Grid>
+        </Popup>
     </Grid>
 </Page>

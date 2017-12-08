@@ -47,5 +47,17 @@ namespace RealEstateBrowser
             App.currentDetail = (House)e.ClickedItem;
             this.Frame.Navigate(typeof(HouseProperties));
         }
+
+        private void shareButt_Click(object sender, RoutedEventArgs e)
+        {
+            ppup.IsOpen = false;
+        }
+
+        private void shareFavs_Click(object sender, RoutedEventArgs e)
+        {
+            // Height is only important if we want the Popup sized to the screen 
+            //ppup.Height = Window.Current.Bounds.Height;
+            ppup.IsOpen = true;
+        }
     }
 }
