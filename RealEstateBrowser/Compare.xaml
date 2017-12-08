@@ -74,7 +74,7 @@
             x:Name="c1_panel"
             Grid.Column="0"
             Grid.Row="2"
-            Visibility="Visible"
+            Visibility="Collapsed"
             Margin="20 0 10 0"
         >
             <StackPanel>
@@ -381,7 +381,7 @@
             x:Name="c2_panel"
             Grid.Column="1"
             Grid.Row="2"
-            Visibility="Visible"            
+            Visibility="Collapsed"            
             Margin="10 0 10 0"
         >
             <StackPanel>
@@ -688,7 +688,7 @@
             x:Name="c3_panel"
             Grid.Column="2"
             Grid.Row="2"
-            Visibility="Visible"            
+            Visibility="Collapsed"            
             Margin="10 0 20 0"
         >
             <StackPanel>
@@ -993,7 +993,8 @@
         <StackPanel
             x:Name="compareStatus"
             Visibility="Collapsed"
-            Grid.Row="3" 
+            Grid.Column="1"
+            Grid.Row="2"
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
             Orientation="Horizontal"

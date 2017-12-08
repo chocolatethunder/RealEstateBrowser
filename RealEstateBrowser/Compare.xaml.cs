@@ -83,6 +83,7 @@ namespace RealEstateBrowser
                     c1_Petfriendly.Fill = new SolidColorBrush(Color.FromArgb(255, 17, 191, 219));
                     c1_Petfriendly.Stroke = new SolidColorBrush(Color.FromArgb(255, 0, 0, 0));
                 }
+                remove_c1.DataContext = this.id.ElementAt(0);
 
                 c1_panel.Visibility = Visibility.Visible;
 
@@ -127,6 +128,7 @@ namespace RealEstateBrowser
                     c2_Petfriendly.Fill = new SolidColorBrush(Color.FromArgb(255, 17, 191, 219));
                     c2_Petfriendly.Stroke = new SolidColorBrush(Color.FromArgb(255, 0, 0, 0));
                 }
+                remove_c2.DataContext = this.id.ElementAt(1);
 
                 c2_panel.Visibility = Visibility.Visible;
 
@@ -172,6 +174,8 @@ namespace RealEstateBrowser
                     c3_Petfriendly.Stroke = new SolidColorBrush(Color.FromArgb(255, 0, 0, 0));
                 }
 
+                remove_c3.DataContext = this.id.ElementAt(2);
+
                 c3_panel.Visibility = Visibility.Visible;
 
             }
@@ -186,8 +190,8 @@ namespace RealEstateBrowser
         private void remove_c1_Click(object sender, RoutedEventArgs e)
         {
             c1_panel.Visibility = Visibility.Collapsed;
-            App.user.compare.Remove(this.id.ElementAt(0));
-            this.id.RemoveAt(0);
+            App.user.compare.Remove(this.id.ElementAt(this.id.IndexOf(Guid.Parse(remove_c1.DataContext.ToString()))));
+            this.id.Remove(Guid.Parse(remove_c1.DataContext.ToString()));
             if (!this.id.Any())
             {
                 compareStatus.Visibility = Visibility.Collapsed;
@@ -198,8 +202,8 @@ namespace RealEstateBrowser
         private void remove_c2_Click(object sender, RoutedEventArgs e)
         {
             c2_panel.Visibility = Visibility.Collapsed;
-            App.user.compare.Remove(this.id.ElementAt(1));
-            this.id.RemoveAt(1);
+            App.user.compare.Remove(this.id.ElementAt(this.id.IndexOf(Guid.Parse(remove_c2.DataContext.ToString()))));
+            this.id.Remove(Guid.Parse(remove_c2.DataContext.ToString()));
             if (!this.id.Any())
             {
                 compareStatus.Visibility = Visibility.Collapsed;
@@ -210,8 +214,9 @@ namespace RealEstateBrowser
         private void remove_c3_Click(object sender, RoutedEventArgs e)
         {
             c3_panel.Visibility = Visibility.Collapsed;
-            App.user.compare.Remove(this.id.ElementAt(2));
-            this.id.RemoveAt(2);
+
+            App.user.compare.Remove(this.id.ElementAt(this.id.IndexOf(Guid.Parse(remove_c3.DataContext.ToString()))));
+            this.id.Remove(Guid.Parse(remove_c3.DataContext.ToString()));
             if (!this.id.Any())
             {
                 compareStatus.Visibility = Visibility.Collapsed;
