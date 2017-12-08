@@ -68,6 +68,334 @@
                 HorizontalAlignment="Center"
             />
         </StackPanel>
+        
+        <!-- compare 1 -->
+        <StackPanel 
+            x:Name="c1_panel"
+            Grid.Column="0"
+            Grid.Row="2"
+            Visibility="Visible"
+        >
+            <StackPanel>
+                <Button
+                    Grid.Column="2"
+                    FontFamily="Segoe MDL2 Assets"
+                    FontSize="22"
+                    Content="&#xE8BB;"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Right"
+                    Margin="0 10 5 10"
+                    Foreground="PaleVioletRed"
+                    Background="Transparent"
+                    x:Name="remove_c1"
+                    Click="remove_c1_Click"
+                />
+                <Image x:Name="c1_img" Stretch="UniformToFill" />                
+            </StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <TextBlock 
+                    x:Name="c1_title" 
+                    Text="A Beautiful House" 
+                    FontSize="26" 
+                    Padding="15" 
+                    Grid.ColumnSpan="3" 
+                    HorizontalAlignment="Center"
+                />
+                <TextBlock 
+                    x:Name="c1_price" 
+                    Text="$32,000,000" 
+                    FontSize="26" 
+                    FontWeight="SemiBold" 
+                    Padding="15" 
+                    Grid.Column="3" 
+                    Grid.ColumnSpan="3" 
+                    HorizontalAlignment="Right"
+                />
+
+                <Grid 
+                    Grid.Row="1" 
+                    Grid.Column="1" 
+                    HorizontalAlignment="Right" 
+                    Padding="0 0 10 10"
+                >
+                    <Ellipse 
+                        Width="72" 
+                        Height="72"
+                        Stroke="#000000"
+                        StrokeThickness="3"
+                        Margin="0 0 0 0"
+                        VerticalAlignment="Center"
+                    />
+                    <Ellipse 
+                        Width="56" 
+                        Height="56"
+                        Margin="0 0 0 0"
+                    >
+                        <ToolTipService.ToolTip>
+                            <TextBlock Text="Property Type" />
+                        </ToolTipService.ToolTip>
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/Assets/UI/icon-type.png" Stretch="UniformToFill"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Grid>
+                <TextBlock
+                    x:Name="c1_type"
+                    Text="Townhouse"
+                    FontSize="32"
+                    FontWeight="SemiBold"
+                    Grid.Column="2"
+                    Grid.ColumnSpan="3"
+                    Grid.Row="1"
+                    Padding="5 0 0 0"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                />
+
+                <Grid 
+                    Grid.Row="2" 
+                    Grid.Column="1" 
+                    HorizontalAlignment="Right" 
+                    Padding="0 0 10 10"
+                >
+                    <Ellipse 
+                        Width="72" 
+                        Height="72"
+                        Stroke="#000000"
+                        StrokeThickness="3"
+                        Margin="0 0 0 0"
+                        VerticalAlignment="Center"
+                    />
+                    <Ellipse 
+                        Width="56" 
+                        Height="56"
+                        Margin="0 0 0 0"
+                    >
+                        <ToolTipService.ToolTip>
+                            <TextBlock Text="Bedrooms" />
+                        </ToolTipService.ToolTip>
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/Assets/UI/icon-bedroom.png" Stretch="UniformToFill"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Grid>
+                <TextBlock
+                    x:Name="c1_beds"
+                    Text="2"
+                    FontSize="40"
+                    FontWeight="SemiBold"
+                    Grid.Column="2"
+                    Grid.Row="2"
+                    Padding="5 0 0 0"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                />
+
+                <Grid 
+                    Grid.Row="2" 
+                    Grid.Column="3" 
+                    HorizontalAlignment="Right" 
+                    Padding="0 0 10 10"
+                >
+                    <Ellipse 
+                        Width="72" 
+                        Height="72"
+                        Stroke="#000000"
+                        StrokeThickness="3"
+                        Margin="0 0 0 0"
+                        VerticalAlignment="Center"
+
+                    />
+                    <Ellipse 
+                        Width="56" 
+                        Height="56"
+                        Margin="0 0 0 0"
+                    >
+                        <ToolTipService.ToolTip>
+                            <TextBlock Text="Bathrooms" />
+                        </ToolTipService.ToolTip>
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/Assets/UI/icon-bathroom.png" Stretch="UniformToFill"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Grid>
+                <TextBlock
+                    x:Name="c1_baths"
+                    Text="2"
+                    FontSize="40"
+                    FontWeight="SemiBold"
+                    Grid.Column="4"
+                    Grid.Row="2"
+                    Padding="5 0 0 0"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                />
+                
+                <!--
+                <Grid Grid.Row="3" Grid.ColumnSpan="6" Margin="75 10 75 0" Width="300">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                -->
+                <Grid Grid.Column="1" Grid.Row="3">
+                    <Ellipse 
+                        Width="72" 
+                        Height="72"
+                        Stroke="#C9C9C9"
+                        StrokeThickness="3"
+                        Margin="0 0 0 10"
+                        VerticalAlignment="Center" 
+                        x:Name="c1_Garage"
+                        Fill="#C9C9C9"
+                    />
+                    <Ellipse 
+                        Width="56" 
+                        Height="56"
+                        Margin="0 0 0 10"
+                    >
+                        <ToolTipService.ToolTip>
+                            <TextBlock Text="Garage" />
+                        </ToolTipService.ToolTip>
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/Assets/UI/icon-garage.png" Stretch="UniformToFill"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Grid>
+                <Grid Grid.Column="2" Grid.Row="3">
+                    <Ellipse 
+                        Width="72" 
+                        Height="72"
+                        Stroke="#C9C9C9"
+                        StrokeThickness="3"
+                        Margin="0 0 0 10"
+                        VerticalAlignment="Center"
+                        x:Name="c1_Backyard"
+                        Fill="#C9C9C9"
+                    />
+                    <Ellipse 
+                        Width="56" 
+                        Height="56"
+                        Margin="0 0 0 10"
+                    >
+                        <ToolTipService.ToolTip>
+                            <TextBlock Text="Backyard" />
+                        </ToolTipService.ToolTip>
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/Assets/UI/icon-backyard.png" Stretch="UniformToFill"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Grid>
+                <Grid Grid.Column="3" Grid.Row="3">
+                    <Ellipse 
+                        Width="72" 
+                        Height="72"
+                        Stroke="#C9C9C9"
+                        StrokeThickness="3"
+                        Margin="0 0 0 10"
+                        VerticalAlignment="Center"
+                        x:Name="c1_Furnished"
+                        Fill="#C9C9C9"
+                    />
+                    <Ellipse 
+                        Width="56" 
+                        Height="56"
+                        Margin="0 0 0 10"
+                    >
+                        <ToolTipService.ToolTip>
+                            <TextBlock Text="Furnished" />
+                        </ToolTipService.ToolTip>
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/Assets/UI/icon-furnished.png" Stretch="UniformToFill"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Grid>
+                <Grid Grid.Column="1" Grid.Row="4">
+                    <Ellipse 
+                        Width="72" 
+                        Height="72"
+                        Stroke="#C9C9C9"
+                        StrokeThickness="3"
+                        Margin="0 0 0 10"
+                        VerticalAlignment="Center"
+                        x:Name="c1_Fireplace"
+                        Fill="#C9C9C9"
+                    />
+                    <Ellipse 
+                        Width="56" 
+                        Height="56"
+                        Margin="0 0 0 10"
+                    >
+                        <ToolTipService.ToolTip>
+                            <TextBlock Text="Fireplace" />
+                        </ToolTipService.ToolTip>
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/Assets/UI/icon-fireplace.png" Stretch="UniformToFill"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Grid>
+                <Grid Grid.Column="2" Grid.Row="4">
+                    <Ellipse 
+                        Width="72" 
+                        Height="72"
+                        Stroke="#C9C9C9"
+                        StrokeThickness="3"
+                        Margin="0 0 0 10"
+                        VerticalAlignment="Center"
+                        x:Name="c1_Petfriendly"
+                        Fill="#C9C9C9"
+                    />
+                    <Ellipse 
+                        Width="56" 
+                        Height="56"
+                        Margin="0 0 0 10"
+
+                    >
+                        <ToolTipService.ToolTip>
+                            <TextBlock Text="Petfriendly" />
+                        </ToolTipService.ToolTip>
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/Assets/UI/icon-pets.png" Stretch="UniformToFill"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Grid>
+                <!--</Grid>-->
+
+            </Grid>
+            
+            
+            
+
+        </StackPanel>
+
+
+        <!-- compare 2 -->
+
+        <!-- compare 3 -->
+
 
     </Grid>
 </Page>
