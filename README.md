@@ -19,8 +19,9 @@ by: Victor Duarte, Daniel Tyler Gillson, Shannon Tucker-Jones, Lamess Kharfan, S
 * AGILE Software development used to design the browsing software
 
 **System Requirements: Windows 10, Visual Studio 2017**
-
+System does not run on USB drive, ensure it is copied the HDD before attempting to run. 
 If the system is not running, rebuild in solutions explorer.
+
 1) Follow initial search procedure.
     - Consider entering Calgary, Edmonton, or Vancouver.
         -If searching in Calgary:
