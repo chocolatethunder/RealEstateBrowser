@@ -25,6 +25,8 @@ namespace RealEstateBrowser
     /// </summary>
     public sealed partial class HouseProperties : Page
     {
+        private int nexti = 1;
+
         public HouseProperties()
         {
             this.InitializeComponent();
@@ -36,6 +38,7 @@ namespace RealEstateBrowser
             bathrooms.Text = App.currentDetail._bathrooms.ToString();
             proptype.Text = App.currentDetail._propertyType;
             squareFt.Text = App.currentDetail._area.ToString("#,##0") + " sqft";
+            imgSlides.Source = new BitmapImage(new Uri(this.BaseUri, "Assets/HousePics/" + App.currentDetail._images.ElementAt(0).ToString()));
 
             foreach (KeyValuePair<String,Boolean> feature in App.currentDetail._features)
             {
@@ -160,6 +163,18 @@ namespace RealEstateBrowser
         private void sendButt_Click(object sender, RoutedEventArgs e)
         {
             ppup.IsOpen = false;
+        }
+
+        private void nextSlide_Click(object sender, RoutedEventArgs e)
+        {           
+            if (this.nexti < 0 || this.nexti >= App.currentDetail._images.Count()) { this.nexti = 0;  }
+            imgSlides.Source = new BitmapImage(new Uri(this.BaseUri, "Assets/HousePics/" + App.currentDetail._images.ElementAt(this.nexti++).ToString()));
+        }
+
+        private void prevSlide_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.nexti < 0 || this.nexti >= App.currentDetail._images.Count()) { this.nexti = 0; }
+            imgSlides.Source = new BitmapImage(new Uri(this.BaseUri, "Assets/HousePics/" + App.currentDetail._images.ElementAt(this.nexti--).ToString()));
         }
     }
 }

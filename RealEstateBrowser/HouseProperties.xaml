@@ -26,7 +26,6 @@
         <Image
             x:Name="imgSlides"
             Grid.Row="0"
-            Source="Assets/HousePics/house-1-1.jpeg"
             Stretch="UniformToFill"
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
@@ -45,7 +44,9 @@
                 VerticalAlignment="Stretch"
                 HorizontalAlignment="Stretch"
                 Foreground="#FFFFFF"
-                Background="Transparent"                
+                Background="Transparent" 
+                x:Name="prevSlide"
+                Click="prevSlide_Click"
             />
             <Button
                 Grid.Column="2"
@@ -56,6 +57,8 @@
                 HorizontalAlignment="Stretch"
                 Foreground="#FFFFFF"
                 Background="Transparent"
+                x:Name="nextSlide"
+                Click="nextSlide_Click"
             />
             <Button
                 Grid.Column="2"
